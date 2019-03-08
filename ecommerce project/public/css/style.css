@@ -1,0 +1,237 @@
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background: #fff;
+}
+
+a {
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+.navbar-laravel {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+#app .ribbon {
+  background: red;
+  margin-bottom: 2rem;
+  width: 100%;
+  background: black;
+}
+
+#app .ribbon ul {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.2rem 0;
+}
+
+#app .ribbon ul li {
+  float: left;
+  list-style: none;
+  margin-right: 1rem;
+}
+
+#app .ribbon ul li a {
+  color: white;
+  font-weight: 500;
+}
+
+#app header {
+  /* When the input field gets focus, change its width to 100% */
+}
+
+#app header .brand {
+  font-weight: bold;
+}
+
+#app header .search > input {
+  color: #000;
+  font-size: 20px;
+}
+
+#app header .materialTextbox {
+  transition: width 0.4s ease-in-out;
+  border: none;
+  background: transparent;
+  color: white;
+  outline: none;
+  border-bottom-style: solid;
+}
+
+#app header .search > input:focus {
+  width: 90%;
+}
+
+#app header .shopping-cart {
+  overflow: auto;
+}
+
+#app header .shopping-cart img {
+  float: left;
+}
+
+#bigheart-nav li a {
+  font-size: 15px;
+}
+
+#customerSignin .container form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+#customerSignin .container form .login-heading {
+  font-size: 177;
+  font-weight: bold;
+  margin-bottom: 6vh;
+}
+
+.inputBox {
+  display: block;
+  width: 100%;
+  padding: 7px 15px;
+}
+
+.carousel-item {
+  height: 350px;
+}
+
+.profile aside ul li .active {
+  font-weight: bold;
+}
+
+#footer {
+  padding: 30px 0;
+}
+
+.footer {
+  margin: 15px 0px;
+}
+
+.footer .footer-header {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.footer-logo {
+  margin-bottom: 30px;
+}
+
+.footer-logo .logo {
+  display: inline-block;
+}
+
+.footer-logo .logo > img {
+  max-height: 70px;
+}
+
+.footer-social > li {
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 6px;
+}
+
+.footer-social > li:last-child {
+  margin-right: 0px;
+}
+
+.footer-copyright {
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.inputBoxs {
+  border-radius: 0;
+  width: 100%;
+  height: 40px;
+  padding: 0px 15px;
+  border: none;
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 1px #dadada inset, 0px 0px 0px 5px transparent;
+  transition: 0.3s all;
+}
+
+.input:focus {
+  box-shadow: 0px 0px 0px 1px #f8694a inset, 0px 0px 0px 0px #f8694a;
+}
+
+textarea.input {
+  padding: 15px;
+}
+
+.input-checkbox .caption {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s max-height;
+}
+
+.input-checkbox > label {
+  color: #30323a;
+}
+
+.input-checkbox input[type=checkbox]:checked + label + .caption,
+.input-checkbox input[type=radio]:checked + label + .caption {
+  max-height: 800px;
+}
+
+.product-image-wrapper {
+  border: 1px solid #f7f7f5;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.add-to-cart {
+  background: #f5f5ed;
+  border: 0 none;
+  border-radius: 0;
+  color: #696763;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.add-to-cart:hover {
+  background: #fe980f;
+  border: 0 none;
+  border-radius: 0;
+  color: #ffffff;
+}
+
+.add-to {
+  margin-bottom: 10px;
+}
+
+.add-to-cart i {
+  margin-right: 5px;
+}
+
+.add-to-cart:hover {
+  background: #fe980f;
+  color: #ffffff;
+}
+
+.choose {
+  border-top: 1px solid #f7f7f0;
+}
+
+.choose ul li a {
+  color: #b3afa8;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.choose ul li a i {
+  margin-right: 5px;
+}
+
+.choose ul li a:hover {
+  background: none;
+  color: #fe980f;
+}
+
