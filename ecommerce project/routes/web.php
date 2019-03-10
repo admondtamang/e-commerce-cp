@@ -11,9 +11,12 @@
 |
  */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+Route::get('/', 'IndexController@index');
+
 
 Auth::routes();
 
@@ -31,6 +34,11 @@ Route::group(['prefix' => 'store'], function () {
     Route::get('/', 'StoreController@index')->name('store.dashboard');
     Route::resource('/products', 'ProductController');
 });
+
+Route::get('/list-products', 'IndexController@shop');
+
+//wishlist
+Route::get('/wishlist', 'WhishlistController@index');
 
 Route::get('/allProducts', 'ProductController@allProducts');
 //profile

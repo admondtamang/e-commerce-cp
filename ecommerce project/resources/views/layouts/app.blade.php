@@ -100,7 +100,7 @@
                                     <a class="nav-link" href="#">Women</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('allProducts.allproducts')}}">Products</a>
+                                    {{-- <a class="nav-link" href="{{ route('allProducts.allproducts')}}">Products</a> --}}
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">About</a>
@@ -194,7 +194,16 @@
         
     </div> <!-- End of App div -->
         <!-- Scripts -->
+       
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script>
+            
+    $(document).ready(function(){
+    $('.slide').slick({
+        dots:true
+    });
+    });
+        </script>
         
     </body>
     </html>

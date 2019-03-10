@@ -24,8 +24,44 @@
     </a>
 </div>
 
-
+<div class="slide" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+  <div><h3>1</h3></div>
+  <div><h3>2</h3></div>
+  <div><h3>3</h3></div>
+  <div><h3>4</h3></div>
+  <div><h3>5</h3></div>
+  <div><h3>6</h3></div>
+</div>
 {{-- products --}}
+
+<div class="col-sm-9">
+  <div class="features_items"><!--features_items-->
+      <h2 class="text-center m-5">Features Products</h2>
+      <div class="row">
+      @foreach($products as $product)
+              <div class="col-sm-4">
+              <div class="product-image-wrapper">
+              <div class="single-products">
+                  <div class="productinfo text-center">
+                      <a href="{{url('/product-detail',$product->id)}}"><img src="{{url('uploads/products/',$product->image)}}" alt="" /></a>
+                      <h2>$ {{$product->price}}</h2>
+                      <p>{{$product->name}}</p>
+                      <a href="{{url('/product-detail',$product->id)}}" class="btn btn-default add-to-cart">View Product</a>
+                  </div>
+              </div>
+              <div class="choose">
+                  <ul class="nav nav-pills nav-justified">
+                      <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                      <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      @endforeach
+    </div>
+  </div><!--features_items-->
+
+</div>
 
 
 
