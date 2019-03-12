@@ -13,6 +13,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel ="stylesheet">
     <link href="{{ asset('css/util.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('easyzoom/css/easyzoom.css')}}" />
+
 </head>
 <body>
     <div id="app">
@@ -58,17 +60,19 @@
                                     <div class="search col-xs-4 col-md-4 col-lg-4 pt-1">
                                         <input type="search" class="materialTextbox" name="search" tabindex="2"><i class="fas fa-search"></i>
                                     </div>
-                                    <div class="brand col-xs-4 col-md-4 col-lg-4">
+                                    <div class="brand col-xs-4 col-md-4 col-lg-4 d-flex justify-content-center">
                                         <a class="navbar-brand" href="{{ url('/') }}">
                                             <img src="{{asset('images/shop.png')}}" class="img-fluid mr-1" width="70" alt="{{ config('app.name', 'Laravel') }}">{{ config('app.name', 'Laravel') }}
                                         </a>
                                     </div>
-                                    <div class="shopping-cart col-xs-4 col-md-4 col-lg-4">
+                                    <div class="shopping-cart col-xs-4 col-md-4 col-lg-4 d-flex justify-content-end">
+                                        <div class="cart">
                                             <img src="{{asset('images/cart.png')}}" class="img-fluid mr-2" width="50" alt="CART">
                                             <div class="checkout d-flex flex-column mt-1">
                                                 <a href="#">Check Out</a>
                                                 <p>0.00<p>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -130,14 +134,7 @@
                     </div>
                     <p>Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879</p>
     
-                            <!-- footer social -->
-                            <ul class="footer-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                            </ul>
+                            
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="footer">
@@ -153,7 +150,7 @@
                 </div>
                 <div class="clearfix visible-sm visible-xs"></div>
 
-                <div class="col-md-3 col-sm-6 col-xs-6">
+                <div class="col-md-3 col-sm-5 col-xs-5">
                     <div class="footer">
                         <h3 class="footer-header">Customer Service</h3>
                         <ul class="list-links">
@@ -164,16 +161,24 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-6">
+                <div class="col-md-3 col-sm-7 col-xs-7">
                     <div class="footer">
                         <h3 class="footer-header">Stay Connected</h3>
                         <p>Subscribe us for Newsletter.</p>
                         <form>
-                            <div class="form-group">
-                                <input class="inputBoxs" placeholder="Enter Email Address">
+                            <div class="form-group d-flex">
+                                <input class="inputBoxs mr-1" placeholder="Email Address">
+                                <input type="submit" name="submit" class="btn btn-dark" value="SUSCRIBE">
                             </div>
-                            <button class="btn btn-dark">Join Newslatter</button>
                         </form>
+                        <!-- footer social -->
+                        <ul class="footer-social">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -196,6 +201,38 @@
         <!-- Scripts -->
        
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{asset('easyzoom/dist/easyzoom.js')}}"></script>
+<script>
+    // Instantiate EasyZoom instances
+    var $easyzoom = $('.easyzoom').easyZoom();
+
+    // Setup thumbnails example
+    var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
+
+    $('.thumbnails').on('click', 'a', function(e) {
+        var $this = $(this);
+
+        e.preventDefault();
+
+        // Use EasyZoom's `swap` method
+        api1.swap($this.data('standard'), $this.attr('href'));
+    });
+
+    // Setup toggles example
+    var api2 = $easyzoom.filter('.easyzoom--with-toggle').data('easyZoom');
+
+    $('.toggle').on('click', function() {
+        var $this = $(this);
+
+        if ($this.data("active") === true) {
+            $this.text("Switch on").data("active", false);
+            api2.teardown();
+        } else {
+            $this.text("Switch off").data("active", true);
+            api2._init();
+        }
+    });
+</script>
         <script>
             
     $(document).ready(function(){

@@ -17,6 +17,8 @@
 
 Route::get('/', 'IndexController@index');
 
+Route::get('/product-detail/{id}', 'IndexController@detialproduct');
+// Route::post('/addToCart/{id}', 'cartController');
 
 Auth::routes();
 

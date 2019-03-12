@@ -23,22 +23,27 @@
       <span class="sr-only">Next</span>
     </a>
 </div>
-
-<div class="slide" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
-  <div><h3>1</h3></div>
-  <div><h3>2</h3></div>
-  <div><h3>3</h3></div>
-  <div><h3>4</h3></div>
-  <div><h3>5</h3></div>
-  <div><h3>6</h3></div>
-</div>
 {{-- products --}}
 
-<div class="col-sm-9">
   <div class="features_items"><!--features_items-->
-      <h2 class="text-center m-5">Features Products</h2>
+      <h2 class="text-center m-5">All Products</h2>
       <div class="row">
       @foreach($products as $product)
+
+      <article class="wrapper-thumbnail col-xxs-12 col-xs-6 col-sm-4 col-md-4 col-lg-3 fadeinslow animated">
+          <div class="thumbnail">
+            <a href="{{url('/product-detail',$product->id)}}" class="thumbnail-image">
+              <img src="{{url('uploads/products/',$product->image)}}" itemprop="image" class="product-image" alt="Geo Tray" rel="itmimg87978943">
+            </a>
+            <div class="caption text-center m-2">
+            <h3 itemprop="name"><a href="{{url('/product-detail',$product->id)}}" title="Geo Tray">{{$product->name}}</a></h3>
+              <a href="{{url('/product-detail',$product->id)}}">
+                <span>$88.00 </span>
+              </a>
+            </div>
+          </div>
+      </article>
+{{-- 
               <div class="col-sm-4">
               <div class="product-image-wrapper">
               <div class="single-products">
@@ -56,12 +61,11 @@
                   </ul>
               </div>
           </div>
-      </div>
+      </div> --}}
       @endforeach
     </div>
   </div><!--features_items-->
 
-</div>
 
 
 

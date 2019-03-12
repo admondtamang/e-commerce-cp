@@ -1,8 +1,9 @@
 @extends('.layouts.app')
 
 @section('content')
-Store Dashboard
 
-<a class="card text-center shadow" href="{{ route('products.index') }}">products</a>
-<a class="card text-center shadow" href="{{ route('products.index') }}">products</a>
+<h1>Store Dashboard</h1>
+<div class="row">
+    <a class="card text-center shadow p-5" href="{{ route('products.index') }}">products</a>
+</div>
 @endsection 
