@@ -32,26 +32,26 @@
         </div> --}}
         <div class="form-group">
             <div class="controls{{$errors->has('name')?' has-error':''}}">
-                <input type="text" name="name" id="name" placeholder="Product name" class="form-control inputBoxs" value="{{old('name')}}" title="" required="required" style="width: 400px;">
+                <input type="text" name="name" id="name" placeholder="Product name" class="form-control " value="{{old('name')}}" title="" required="required" style="width: 400px;">
                 <span class="text-danger">{{$errors->first('name')}}</span>
             </div>
         </div>
         <div class="form-group">
             <div class="controls{{$errors->has('stock_quantity')?' has-error':''}}">
-                <input type="number" name="stock_quantity" placeholder="Stock Quantity" id="stock_quantity" class="form-control inputBoxs" value="{{old('stock_quantity')}}" title="" required="required" style="width: 400px;">
+                <input type="number" name="stock_quantity" placeholder="Stock Quantity" id="stock_quantity" class="form-control " value="{{old('stock_quantity')}}" title="" required="required" style="width: 400px;">
                 <span class="text-danger">{{$errors->first('stock_quantity')}}</span>
             </div>
         </div>
     
         <div class="form-group">
             <div class="controls{{$errors->has('description')?' has-error':''}}">
-                <textarea class="textarea_editor span12 inputBoxs" name="description" id="description" rows="6" placeholder="Product Description" style="width: 580px;padding:10px;">{{old('description')}}</textarea>
+                <textarea class="form-control" name="description" id="description" rows="6" placeholder="Product Description" style="width: 580px;padding:10px;height:auto;">{{old('description')}}</textarea>
                 <span class="text-danger">{{$errors->first('description')}}</span>
             </div>
         </div>
         <div class="form-group">
             <div class="controls{{$errors->has('price')?' has-error':''}}">
-                    <input type="number" placeholder="Price(Nrs)" name="price" id="price" class="inputBoxs" value="{{old('price')}}" title="" required="required">
+                    <input type="number" placeholder="Price (Nrs)" name="price" id="price" class="form-control" value="{{old('price')}}" title="" required="required">
                     <span class="text-danger">{{$errors->first('price')}}</span>
                 </div>
             </div>

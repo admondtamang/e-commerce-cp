@@ -3,14 +3,14 @@
 
 <div class="signin" id="customerSignin">
     <div class="container">
-        <form method="POST" action="{{ route('admin.login.submit') }}  ">
+        <form method="POST" action="{{ route('admin.login.submit') }}">
             @csrf
-            <h1 class="login-heading">Admin Login</h1>
+            <h1 class="login-heading">Login</h1>
             <p>
                     <input
                     id="email"
                     type="email"
-                    class="inputBoxs form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                    class="inputBoxs form-control {{ $errors->has('email') ? 'text-danger' : '' }}"
                     name="email"
                     placeholder="Email"
                     value="{{ old('email') }}"
@@ -19,7 +19,7 @@
                 />
 
                 @if ($errors->has('email'))
-                <span class="invalid-feedback" role="alert">
+                <span class="text-danger" role="alert">
                     <strong
                         >{{ $errors->first('email') }}</strong
                     >
@@ -33,12 +33,12 @@
                     id="password"
                     type="password"
                     placeholder="{{ __('Password') }}"
-                    class="form-control inputBoxs{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                    class="form-control inputBoxs{{ $errors->has('password') ? 'text-danger' : '' }}"
                     name="password"
                     required
                 />
                     @if ($errors->has('email'))
-                    <span class="invalid-feedback" role="alert">
+                    <span class="text-danger" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
                     @endif

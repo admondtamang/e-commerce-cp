@@ -23,6 +23,7 @@ class ProductController extends Controller
     {
         return view('store.products.create');
     }
+
     public function uploadFile($file, $dir)
     {
         $file_extension = $file->getClientOriginalExtension();
@@ -31,8 +32,6 @@ class ProductController extends Controller
         return $file_name;
     }
 
-    public function show($id)
-    { }
     function store()
     {
         $req = request();
@@ -57,7 +56,6 @@ class ProductController extends Controller
         $product->category_id = 1;
 
         $product->store_id = 1;
-        $product->stock_quantity = $form_req['stock_quantity'];
         $product->stock_quantity = $form_req['stock_quantity'];
         $product->save();
         return redirect()->route('products.create')->with('message', 'Add Products Successfully!');

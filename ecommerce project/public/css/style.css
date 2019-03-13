@@ -19,6 +19,40 @@ ul {
   list-style: none;
 }
 
+.form-control {
+  height: 40px;
+  box-shadow: none;
+  font-size: 13px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  background: #fff;
+  border: 1px solid #cacaca;
+  border-radius: 4px !important;
+  transition: border-color 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0 !important;
+}
+
+.form-control:focus {
+  border-color: #858585;
+  box-shadow: none;
+}
+
+.btn {
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 0;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: 0;
+}
+
+.btn-inverse {
+  border: 1px solid #ddd;
+}
+
 .navbar-laravel {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
@@ -152,40 +186,6 @@ ul {
   margin-top: 15px;
   text-transform: uppercase;
   font-size: 14px;
-}
-
-.inputBoxs {
-  border-radius: 0;
-  width: 100%;
-  height: 40px;
-  padding: 0px 15px;
-  border: none;
-  background-color: transparent;
-  box-shadow: 0px 0px 0px 1px #dadada inset, 0px 0px 0px 5px transparent;
-  transition: 0.3s all;
-}
-
-.input:focus {
-  box-shadow: 0px 0px 0px 1px #f8694a inset, 0px 0px 0px 0px #f8694a;
-}
-
-textarea.input {
-  padding: 15px;
-}
-
-.input-checkbox .caption {
-  max-height: 0;
-  overflow: hidden;
-  transition: 0.3s max-height;
-}
-
-.input-checkbox > label {
-  color: #30323a;
-}
-
-.input-checkbox input[type=checkbox]:checked + label + .caption,
-.input-checkbox input[type=radio]:checked + label + .caption {
-  max-height: 800px;
 }
 
 .product-image-wrapper {

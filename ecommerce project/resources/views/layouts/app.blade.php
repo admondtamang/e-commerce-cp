@@ -69,7 +69,7 @@
                                         <div class="cart">
                                             <img src="{{asset('images/cart.png')}}" class="img-fluid mr-2" width="50" alt="CART">
                                             <div class="checkout d-flex flex-column mt-1">
-                                                <a href="#">Check Out</a>
+                                            <a href="{{ url('/cart') }}">Check Out</a>
                                                 <p>0.00<p>
                                             </div>
                                         </div>
@@ -104,13 +104,13 @@
                                     <a class="nav-link" href="#">Women</a>
                                 </li>
                                 <li class="nav-item">
-                                    {{-- <a class="nav-link" href="{{ route('allProducts.allproducts')}}">Products</a> --}}
+                                    <a class="nav-link" href="#">Brands</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="contact.html">Contact Us</a>
                                 </li>
                             </ul>
                         </div>
@@ -167,7 +167,7 @@
                         <p>Subscribe us for Newsletter.</p>
                         <form>
                             <div class="form-group d-flex">
-                                <input class="inputBoxs mr-1" placeholder="Email Address">
+                                <input class="form-control mr-1" placeholder="Email Address">
                                 <input type="submit" name="submit" class="btn btn-dark" value="SUSCRIBE">
                             </div>
                         </form>

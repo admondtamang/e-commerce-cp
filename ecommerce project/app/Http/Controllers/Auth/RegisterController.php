@@ -38,6 +38,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:admin');
+        $this->middleware('guest:store');
     }
 
     /**
@@ -70,6 +72,20 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'gender' => $data['gender'],
         ]);
-        
+    }
+    public function showStoreRegisterForm()
+    {
+        return view('auth.registerStore');
+    }
+    protected function createStore(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $admin = Admin::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('auth/loginAdmin');
     }
 }
