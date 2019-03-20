@@ -1,20 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
- */
-
-// Route::get('/', function () {
-//     return view('home');
-// });
-
 Route::get('/', 'IndexController@index');
 
 Route::get('/product-detail/{id}', 'IndexController@detialproduct');
@@ -31,18 +16,22 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
 
-
 // Store
-Route::post('/registerStore', 'Auth\RegisterController@createStore');
-Route::get('/registerStore', 'Auth\RegisterController@showStoreRegisterForm');
+Route::resource('/registerStore', 'Auth\RegisterStoreController');
+
 Route::group(['prefix' => 'store'], function () {
     Route::get('login', 'Auth\StoreLoginController@showLoginForm')->name('store.login');
     Route::post('login', 'Auth\StoreLoginController@login')->name('store.login.submit');
     Route::get('/', 'StoreController@index')->name('store.dashboard');
     Route::resource('/products', 'ProductController');
+    //Category
+    Route::resource('/category', 'CategoryController');
 });
 
+
+
 //cart
+Route::get('/addToCart', 'CartController@addToCart');
 Route::get('/cart', 'CartController@index');
 
 Route::get('/list-products', 'IndexController@shop');

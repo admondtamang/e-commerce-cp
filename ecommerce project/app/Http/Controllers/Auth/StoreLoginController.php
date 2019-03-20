@@ -8,11 +8,16 @@ use Auth;
 
 class StoreLoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest:store', ['except' => ['logout']]);
+    }
 
     public function showLoginForm()
     {
         return view('auth.loginStore');
     }
+
 
     public function login(Request $request)
     {

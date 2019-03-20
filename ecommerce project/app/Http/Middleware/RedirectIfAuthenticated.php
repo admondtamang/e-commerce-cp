@@ -22,13 +22,10 @@ class RedirectIfAuthenticated
             return redirect('/admin');
         }
         if ($guard == "store" && Auth::guard($guard)->check()) {
-
-            return redirect('/store/store');
+            return redirect('/store');
         }
         if (Auth::guard($guard)->check()) {
-            $products = Product::all();
-            return view('store/store')->with('products', $products);
-            // return redirect('/home');
+            return redirect('/home');
         }
 
         return $next($request);

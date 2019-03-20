@@ -25,6 +25,11 @@ ul {
     list-style: none;
 }
 
+//nav
+.active {
+    color: red;
+}
+
 //form
 
 .form-control {
@@ -106,6 +111,7 @@ ul {
 
         /* When the input field gets focus, change its width to 100% */
         .search > input:focus {
+            transition: width 0.4s ease-in-out;
             width: 90%;
         }
 
@@ -118,7 +124,7 @@ ul {
     }
 }
 
-#bigheart-nav li a {
+#bigheart-nav li {
     font-size: 15px;
     font-weight: 600;
 }
@@ -143,11 +149,11 @@ ul {
 }
 // profile
 
-.profile aside ul li {
-    .active {
-        font-weight: bold;
-    }
-}
+// .profile aside ul li {
+//     .active {
+//         font-weight: bold;
+//     }
+// }
 
 //footer
 

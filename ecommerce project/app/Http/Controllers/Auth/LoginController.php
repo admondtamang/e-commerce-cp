@@ -28,13 +28,13 @@ class LoginController extends Controller
      */
     //protected $redirectTo = '/home';
 
-    // public function redirectTo()
-    // {
-    //     return view('home');
-    //     $products = Product::all();
-    //     Session::put('frontSession', $products['email']);
-    //     return view('home')->with('products', $products);
-    // }
+    public function redirectTo()
+    {
+        $products = Product::all();
+        return '/';
+        // return view('wishlist')->with('products', $products);
+    }
+
     /**
      * Create a new controller instance.
      *
@@ -43,7 +43,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('guest:admin')->except('logout');
-        $this->middleware('guest:store')->except('logout');
+        // $this->middleware('guest:admin')->except('logout');
+        // $this->middleware('guest:store')->except('logout');
     }
 }

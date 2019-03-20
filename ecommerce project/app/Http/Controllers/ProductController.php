@@ -7,19 +7,25 @@ use App\Product;
 
 class ProductController extends Controller
 {
-    protected $image_dir = "uploads/products";
-    function index()
+    function __construct()
     {
+        // $this->middleware('auth');
+    }
 
+    protected $image_dir = "uploads/products";
+
+    public function index()
+    {
         $menu_active = 2;
         $i = 0;
-        $products = Product::where('store_id', 1)->orderBy('created_at', 'desc')->get();
-        return view('store.products.index', compact('menu_active', 'products', 'i'));
+        $product = Product::with('category')->get();
+        dd($product);
+        // $products = Product::where('store_id', 1)->orderBy('created_at', 'desc')->get();
+        // return view('store.products.index', compact('menu_active', 'products', 'i'));
 
-        // $product = Product::find(all);
         // return view('store.products.index')->with('products', $product);
     }
-    function create()
+    public function create()
     {
         return view('store.products.create');
     }
@@ -32,12 +38,12 @@ class ProductController extends Controller
         return $file_name;
     }
 
-    function store()
+    public function store()
     {
         $req = request();
 
         $this->validate($req, [
-            'name' => 'required|min:5',
+            'name' => 'required|min:3',
             'stock_quantity' => 'required|min:0',
             'description' => 'required',
             'price' => 'required|numeric|min:0',

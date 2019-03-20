@@ -13,7 +13,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel ="stylesheet">
     <link href="{{ asset('css/util.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('css/material-kit.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{asset('easyzoom/css/easyzoom.css')}}" />
 
 </head>
@@ -23,7 +22,7 @@
             <ul class="container">
                 @guest
                 <li><a href="{{ route('login') }}"><i class="fa fa-sign-in-alt mr-1"></i>{{ __('User Login') }}</a></li>
-                <li><a href="{{ route('store.login') }}"><i class="fas fa-store-alt mr-1"></i>{{ __('Store Login') }}</a></li>
+                <li><a href="{{ route('store.login') }}"><i class="fa fa-sign-in-alt mr-1"></i>{{ __('Store Login') }}</a></li>
                 @if (Route::has('register'))
                 <li>
                     <a href="{{ route('register') }}"><i class="fa fa-user-circle mr-1"></i>{{ __('Register') }}</a>
@@ -80,37 +79,37 @@
                         </header>
                                 
                                 
-                    <nav class="navbar-expand-lg mt-3">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bigheart-nav" aria-controls="bigheart-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
-                        <!-- Menu Area Start -->
-                        <div class="collapse navbar-collapse justify-content-center" id="bigheart-nav">
-                            <ul class="navbar-nav" id="bigheart-nav">
-                            <li class="nav-item {{ Request::is('/') ? "active" : "" }}">
-                                    <a class="nav-link" href="{{ url('/') }}">Home</a>
+                                <nav class="navbar-expand-lg mt-3">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bigheart-nav" aria-controls="bigheart-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
+                                    <!-- Menu Area Start -->
+                                    <div class="collapse navbar-collapse justify-content-center" id="bigheart-nav">
+                                        <ul class="navbar-nav" id="bigheart-nav">
+                                            <li class="nav-item active">
+                                                <a class="nav-link text-weight-bold" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="bigheartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+                                                <div class="dropdown-menu" aria-labelledby="bigheartDropdown">
+                                                    <a class="dropdown-item text-weight-bold" href="{{ url('/') }}">Home</a>
+                                                    <a class="dropdown-item" href="archive.html">Archive</a>
+                                                    <a class="dropdown-item" href="single.html">Single Blog</a>
+                                                    <a class="dropdown-item" href="static.html">Static Page</a>
+                                                    <a class="dropdown-item" href="contact.html">Contact</a>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Men's</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="bigheartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
-                                    <div class="dropdown-menu" aria-labelledby="bigheartDropdown">
-                                        <a class="dropdown-item text-weight-bold" href="{{ url('/') }}">Home</a>
-                                        <a class="dropdown-item" href="archive.html">Archive</a>
-                                        <a class="dropdown-item" href="single.html">Single Blog</a>
-                                        <a class="dropdown-item" href="static.html">Static Page</a>
-                                        <a class="dropdown-item" href="contact.html">Contact</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item {{ Request::is('/') ? "active" : "" }}">
-                                    <a class="nav-link" href="#">Men's</a>
-                                </li>
-                                <li class="nav-item {{ Request::is('/') ? "active" : "" }}">
+                                <li class="nav-item">
                                     <a class="nav-link" href="#">Women</a>
                                 </li>
-                                <li class="nav-item {{ Request::is('/') ? "active" : "" }}">
+                                <li class="nav-item">
                                     <a class="nav-link" href="#">Brands</a>
                                 </li>
-                                <li class="nav-item {{ Request::is('/') ? "active" : "" }}">
-                                    <a class="nav-link " href="/about.blade.php">About</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
                                 </li>
-                                <li class="nav-item {{ Request::is('/') ? "active" : "" }}">
+                                <li class="nav-item">
                                     <a class="nav-link" href="contact.html">Contact Us</a>
                                 </li>
                             </ul>
@@ -120,7 +119,17 @@
                     
                     
                 <main class="py-4 container">
-                        @yield('content')
+                    <div class="row">
+                        <aside class="col-xs-4 col-lg-4">
+                            <ul>
+                                <li><a href="{{ route('category.create') }}">Create Category</a></li>
+                            </ul>
+                        </aside>
+                        <section class="col-xs-8 col-lg-8">
+                            
+                            @yield('content')
+                        </section>
+                    </div>
                 </main>
                 
 

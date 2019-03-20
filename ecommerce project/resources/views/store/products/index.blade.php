@@ -1,4 +1,4 @@
-@extends('store.layouts.app')
+@extends('layouts.app')
 @section('content')
  <h1>Your Products</h1>
 <a class="btn btn-primary mb-3" href="{{ url('/store/products/create')}}">Add new products</a>

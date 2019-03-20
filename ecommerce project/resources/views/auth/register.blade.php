@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('registerStore') }}">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         {{-- Name --}}
@@ -46,8 +46,9 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
 
                             <div class="col-md-6">
-                                <input id="gender" type="gender" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender" value="{{ old('gender') }}" required>
-
+                                <input type="radio" name="Male" id="male"> Male
+                                <input type="radio" name="Female" id="Female"> Female
+                                <input type="radio" name="Others" id="Others">Others
                                 @if ($errors->has('gender'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('gender') }}</strong>
@@ -95,7 +96,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-secondary">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -107,5 +108,5 @@
     </div>
 </div>
 
-<a href="{{ route('registerStore') }}">Register Store</a>
+<a class="btn btn-muted" href="{{ url('registerStore') }}">Register Store</a>
 @endsection

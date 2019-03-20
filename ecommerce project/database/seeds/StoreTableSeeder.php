@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
-class UsersTableSeeder extends Seeder
+class StoreTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,11 +12,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('stores')->insert([
             'name' => Str::random(10),
-            'email' => 'admond@gmail.com',
-            'password' => Hash::make('admond@gmail.com'),
-            'gender' => 'male',
+            'email' => 'gold@gmail.com',
+            'password' => Hash::make('gold@gmail.com'),
+            'address' => 'kathmadu',
             'phone' => Str::random(10),
         ]);
     }

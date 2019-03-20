@@ -19,8 +19,12 @@
 
                 </div>
                 <div class="col-sm-7">
-                {{-- <form action="{{route('/addToCart')}}" method="post" role="form"> --}}
+                    <form action="{{route('/addToCart')}}" method="post" role="form">
                         @csrf
+                        <input type="text" value="{{ $detail_product->name }}" name="name" hidden>
+                        <input type="text" value="{{ $detail_product->description }}" name="description" hidden>
+                        <input type="text" value="{{ $detail_product->price }}" name="price" hidden>
+                        <input type="text" value="{{ $detail_product->quantity }}" name="quantity" hidden>
                         <p>Product detail: <b>{{$detail_product->name}}</b></p>
                         <p>Product description: <b>{{$detail_product->description}}</b></p>
                         <p>Product price: <b>{{$detail_product->price}}</b></p>
