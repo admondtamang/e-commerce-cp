@@ -18,12 +18,12 @@ class ProductController extends Controller
     {
         $menu_active = 2;
         $i = 0;
-        $product = Product::with('category')->get();
-        dd($product);
-        // $products = Product::where('store_id', 1)->orderBy('created_at', 'desc')->get();
-        // return view('store.products.index', compact('menu_active', 'products', 'i'));
+        // $product = Product::with('category')->get();
+        // dd($product);
+        $products = Product::where('store_id', 1)->orderBy('created_at', 'desc')->get();
+        return view('store.products.index', compact('menu_active', 'products', 'i'));
 
-        // return view('store.products.index')->with('products', $product);
+        // return view('store.products.index')->with('products', $products);
     }
     public function create()
     {
@@ -77,7 +77,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-
         if ($product->image && app('files')->exists($this->image_dir . '/' . $product->image)) {
             app('files')->delete($this->image_dir . '/' . $product->image);
         }

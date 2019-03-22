@@ -1,28 +1,26 @@
-@extends('layouts.app')
+@extends('layouts/store_layout') 
 @section('content')
 
 <div class="container-fluid">
     @if(Session::has('message'))
-        <div class="alert alert-success text-center" role="alert">
-            <strong>Well done!</strong> {{Session::get('message')}}
-        </div>
-    @endif
-
-    @if($errors->any())
-        <div class="alert alert-danger">
+    <div class="alert alert-success text-center" role="alert">
+        <strong>Well done!</strong> {{Session::get('message')}}
+    </div>
+    @endif @if($errors->any())
+    <div class="alert alert-danger">
         <ul class="list-unstyled">
             @foreach($errors->all() as $error)
-                <li> {{ $error  }}</li>
+            <li> {{ $error }}</li>
             @endforeach
         </ul>
-        </div>
+    </div>
     @endif
 
     <h1 class="heading mb-3">Add Products</h1>
 
     <form action="{{route('products.store')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
-        @csrf
-        {{-- <div class="form-group">
+        @csrf {{--
+        <div class="form-group">
             <label class="control-label">Select Category</label>
             <div class="controls">
                 <select name="categories_id" style="width: 415px;">
@@ -32,17 +30,19 @@
         </div> --}}
         <div class="form-group">
             <div class="controls{{$errors->has('name')?' has-error':''}}">
-                <input type="text" name="name" id="name" placeholder="Product name" class="form-control " value="{{old('name')}}" title="" required="required" style="width: 400px;">
+                <input type="text" name="name" id="name" placeholder="Product name" class="form-control " value="{{old('name')}}" title=""
+                    required="required" style="width: 400px;">
                 <span class="text-danger">{{$errors->first('name')}}</span>
             </div>
         </div>
         <div class="form-group">
             <div class="controls{{$errors->has('stock_quantity')?' has-error':''}}">
-                <input type="number" name="stock_quantity" placeholder="Stock Quantity" id="stock_quantity" class="form-control " value="{{old('stock_quantity')}}" title="" required="required" style="width: 400px;">
+                <input type="number" name="stock_quantity" placeholder="Stock Quantity" id="stock_quantity" class="form-control " value="{{old('stock_quantity')}}"
+                    title="" required="required" style="width: 400px;">
                 <span class="text-danger">{{$errors->first('stock_quantity')}}</span>
             </div>
         </div>
-    
+
         <div class="form-group">
             <div class="controls{{$errors->has('description')?' has-error':''}}">
                 <textarea class="form-control" name="description" id="description" rows="6" placeholder="Product Description" style="width: 580px;padding:10px;height:auto;">{{old('description')}}</textarea>
@@ -51,15 +51,16 @@
         </div>
         <div class="form-group">
             <div class="controls{{$errors->has('price')?' has-error':''}}">
-                    <input type="number" placeholder="Price (Nrs)" name="price" id="price" class="form-control" value="{{old('price')}}" title="" required="required">
-                    <span class="text-danger">{{$errors->first('price')}}</span>
-                </div>
+                <input type="number" placeholder="Price (Nrs)" name="price" id="price" class="form-control" value="{{old('price')}}" title=""
+                    required="required">
+                <span class="text-danger">{{$errors->first('price')}}</span>
             </div>
+        </div>
         {{-- Image --}}
         <div class="form-group">
             <label class="control-label">Image upload</label>
             <div class="controls">
-                <input type="file" name="image" id="image"/>
+                <input type="file" name="image" id="image" />
                 <span class="text-danger">{{$errors->first('image')}}</span>
             </div>
         </div>

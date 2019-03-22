@@ -2,7 +2,7 @@
 
 Route::get('/', 'IndexController@index');
 
-Route::get('/product-detail/{id}', 'IndexController@detialproduct');
+Route::get('/product-detail/{id}', 'IndexController@detialproduct')->name('product.detail');
 // Route::post('/addToCart/{id}', 'cartController');
 
 Auth::routes();
@@ -22,8 +22,8 @@ Route::resource('/registerStore', 'Auth\RegisterStoreController');
 Route::group(['prefix' => 'store'], function () {
     Route::get('login', 'Auth\StoreLoginController@showLoginForm')->name('store.login');
     Route::post('login', 'Auth\StoreLoginController@login')->name('store.login.submit');
-    Route::get('/', 'StoreController@index')->name('store.dashboard');
     Route::resource('/products', 'ProductController');
+    Route::get('/', 'StoreController@index')->name('store.dashboard');
     //Category
     Route::resource('/category', 'CategoryController');
 });
@@ -31,7 +31,8 @@ Route::group(['prefix' => 'store'], function () {
 
 
 //cart
-Route::get('/addToCart', 'CartController@addToCart');
+Route::post('/addToCart', 'CartController@addToCart')->name('addToCart');
+
 Route::get('/cart', 'CartController@index');
 
 Route::get('/list-products', 'IndexController@shop');

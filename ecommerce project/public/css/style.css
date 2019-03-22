@@ -1,291 +1,318 @@
 body {
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-    background: #fff;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background: #fff;
 }
 
 a,
 .pagination > li > a,
 .pagination > li > span {
-    color: #252525;
+  color: #252525;
 }
 
 a:hover,
 a:focus {
-    color: #252525;
-    opacity: 0.8;
+  color: #252525;
+  opacity: 0.8;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 .active {
-    color: red;
+  color: red;
 }
-
-/* Custom bootstrap */
 
 .form-control {
-    height: 40px;
-    box-shadow: none;
-    font-size: 13px;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    background: #fff;
-    border: 1px solid #cacaca;
-    border-radius: 4px !important;
-    transition: border-color 0.2s;
-    outline: none;
-    -webkit-appearance: none;
-    border-radius: 0 !important;
-}
-
-.card-header {
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 0;
-    background-color: #fff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  height: 40px;
+  box-shadow: none;
+  font-size: 13px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  background: #fff;
+  border: 1px solid #cacaca;
+  border-radius: 4px !important;
+  transition: border-color 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0 !important;
 }
 
 .form-control:focus {
-    border-color: #858585;
-    box-shadow: none;
+  border-color: #858585;
+  box-shadow: none;
 }
 
 .btn {
-    text-transform: uppercase;
-    font-weight: 500;
-    border-radius: 0;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    border: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 0;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: 0;
 }
 
 .btn-inverse {
-    border: 1px solid #ddd;
+  border: 1px solid #ddd;
 }
 
 .navbar-laravel {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 #app .ribbon {
-    background: red;
-    margin-bottom: 2rem;
-    width: 100%;
-    background: black;
+  background: red;
+  margin-bottom: 2rem;
+  width: 100%;
+  background: black;
 }
 
 #app .ribbon ul {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0.2rem 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.2rem 0;
 }
 
 #app .ribbon ul li {
-    float: left;
-    list-style: none;
-    margin-right: 1rem;
+  float: left;
+  list-style: none;
+  margin-right: 1rem;
 }
 
 #app .ribbon ul li a {
-    color: white;
-    font-weight: 500;
+  color: white;
+  font-weight: 500;
 }
 
 #app header {
-    /* When the input field gets focus, change its width to 100% */
+  /* When the input field gets focus, change its width to 100% */
 }
 
 #app header .brand {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #app header .search > input {
-    color: #000;
-    font-size: 20px;
+  color: #000;
+  font-size: 20px;
 }
 
 #app header .materialTextbox {
-    transition: width 0.4s ease-in-out;
-    border: none;
-    background: transparent;
-    color: white;
-    outline: none;
-    border-bottom-style: solid;
+  transition: width 0.4s ease-in-out;
+  border: none;
+  background: transparent;
+  color: white;
+  outline: none;
+  border-bottom-style: solid;
 }
 
 #app header .search > input:focus {
-    transition: width 0.4s ease-in-out;
-    width: 90%;
+  transition: width 0.4s ease-in-out;
+  width: 90%;
 }
 
 #app header .shopping-cart {
-    overflow: auto;
+  overflow: auto;
 }
 
 #app header .shopping-cart img {
-    float: left;
+  float: left;
 }
 
 #bigheart-nav li {
-    font-size: 15px;
-    font-weight: 600;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 #customerSignin .container form {
-    width: 60%;
-    margin: 0 auto;
+  width: 60%;
+  margin: 0 auto;
 }
 
 #customerSignin .container form .login-heading {
-    font-size: 177;
-    font-weight: bold;
-    margin-bottom: 6vh;
+  font-size: 177;
+  font-weight: bold;
+  margin-bottom: 6vh;
 }
 
 .inputBox {
-    display: block;
-    width: 100%;
-    padding: 7px 15px;
+  display: block;
+  width: 100%;
+  padding: 7px 15px;
 }
 
 .carousel-item {
-    height: 350px;
+  height: 350px;
 }
 
 #footer {
-    padding: 30px 0;
+  padding: 30px 0;
 }
 
 .footer {
-    color: #484848;
-    margin: 15px 0px;
+  color: #484848;
+  margin: 15px 0px;
 }
 
 .footer .footer-header {
-    font-size: 18px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
 }
 
 .footer-logo {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .footer-logo .logo {
-    display: inline-block;
+  display: inline-block;
 }
 
 .footer-logo .logo > img {
-    max-height: 70px;
+  max-height: 70px;
 }
 
 .footer-social > li {
-    display: inline-block;
-    margin-right: 15px;
-    margin-bottom: 6px;
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 6px;
 }
 
 .footer-social > li:last-child {
-    margin-right: 0px;
+  margin-right: 0px;
 }
 
 .footer-copyright {
-    margin-top: 15px;
-    text-transform: uppercase;
-    font-size: 14px;
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
 .product-image-wrapper {
-    border: 1px solid #f7f7f5;
-    overflow: hidden;
-    margin-bottom: 30px;
+  border: 1px solid #f7f7f5;
+  overflow: hidden;
+  margin-bottom: 30px;
 }
 
 .add-to-cart {
-    background: #f5f5ed;
-    border: 0 none;
-    border-radius: 0;
-    color: #696763;
-    font-family: "Roboto", sans-serif;
-    font-size: 15px;
-    margin-bottom: 25px;
+  background: #f5f5ed;
+  border: 0 none;
+  border-radius: 0;
+  color: #696763;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  margin-bottom: 25px;
 }
 
 .add-to-cart:hover {
-    background: #fe980f;
-    border: 0 none;
-    border-radius: 0;
-    color: #ffffff;
+  background: #fe980f;
+  border: 0 none;
+  border-radius: 0;
+  color: #ffffff;
 }
 
 .add-to {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .add-to-cart i {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .add-to-cart:hover {
-    background: #fe980f;
-    color: #ffffff;
+  background: #fe980f;
+  color: #ffffff;
 }
 
 .choose {
-    border-top: 1px solid #f7f7f0;
+  border-top: 1px solid #f7f7f0;
 }
 
 .choose ul li a {
-    color: #b3afa8;
-    font-family: "Roboto", sans-serif;
-    font-size: 13px;
-    padding-left: 0;
-    padding-right: 0;
+  color: #b3afa8;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .choose ul li a i {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .choose ul li a:hover {
-    background: none;
-    color: #fe980f;
+  background: none;
+  color: #fe980f;
 }
 
 .thumbnail .product-image {
-    width: 100%;
+  width: 100%;
 }
 
 .thumbnail {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .thumbnail .caption h3,
 .thumbnail .caption .h3,
 .thumbnail .caption .name {
-    font-size: 15px;
-    line-height: 1.4;
-    height: 4em;
-    overflow: hidden;
-    font-weight: 500;
+  font-size: 15px;
+  line-height: 1.4;
+  height: 4em;
+  overflow: hidden;
+  font-weight: 500;
 }
 
 .thumbnail .caption h3 {
-    overflow: hidden;
-    font-size: 18px;
-    max-height: none;
-    height: auto;
-    font-weight: 300;
-    margin-bottom: 10px;
-    letter-spacing: 0;
-    text-transform: none;
-    line-height: 120%;
+  overflow: hidden;
+  font-size: 18px;
+  max-height: none;
+  height: auto;
+  font-weight: 300;
+  margin-bottom: 10px;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 120%;
 }
 
 .thumbnail .caption a span {
-    color: #484848;
-    font-weight: 600;
+  color: #484848;
+  font-weight: 600;
 }
+
+.sidebar-menu {
+  border-right: 1px solid rgba(0, 0, 0, 0.0625);
+  height: calc(100vh - 65px);
+  list-style: none;
+  margin: 0;
+}
+
+.sidebar-menu .icon-holder {
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 17px;
+  height: 35px;
+  left: 0;
+  line-height: 35px;
+  margin-right: 14px;
+  position: relative;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 35px;
+}
+
+.sidebar-menu > li > a {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 15px;
+  position: relative;
+  white-space: nowrap;
+}
+
+.sidebar-menu li a {
+  color: #72777a;
+  transition: all 0.3s ease;
+}
+
