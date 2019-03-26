@@ -26,7 +26,7 @@ class CartController extends Controller
         $cart_datas = Cart::where('session_id', $session_id)->get();
         $total_price = 0;
         foreach ($cart_datas as $cart_data) {
-            $total_price += $cart_data->price * $cart_data->stock_quantity;
+            $total_price += $cart_data->price * $cart_data->product_quantity;
         }
         return view('frontEnd.cart', compact('cart_datas', 'total_price'));
     }
@@ -36,7 +36,7 @@ class CartController extends Controller
         $this->validate(
             $request,
             [
-                'stock' => 'required|min:0'
+                'stock' => 'required|min:0|integer'
             ]
         );
         $inputToCart = $request->all();
@@ -55,16 +55,16 @@ class CartController extends Controller
 
             //For duplicate products
             $count_duplicateProducts = Cart::where([
-                'id' => $inputToCart['product_id'],
+                'product_id' => $inputToCart['product_id'],
+                'session_id' => $inputToCart['session_id']
                 // Add if products details are available
             ])->count();
-
             if ($count_duplicateProducts > 0) {
                 return back()->with('message', 'Product is already added!!');
             } else {
                 //Cart added
                 Cart::create($inputToCart);
-                return back()->with('message', 'Product added to card');
+                return back()->with('message', 'Product added to cart');
             }
         } else {
             return back()->with('message', 'Stock is not available');
@@ -134,6 +134,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $items = Cart::find($id);
+        $items->delete();
+        return back()->with('message', 'Deleted Success!');
     }
 }

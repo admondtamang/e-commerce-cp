@@ -32,8 +32,7 @@ Route::group(['prefix' => 'store'], function () {
 
 //cart
 Route::post('/addToCart', 'CartController@addToCart')->name('addToCart');
-
-Route::get('/cart', 'CartController@index');
+Route::resource('/cart', 'CartController');
 
 Route::get('/list-products', 'IndexController@shop');
 

@@ -15,10 +15,10 @@ class CreateShipping extends Migration
     {
         Schema::create('shippings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('primary_address');
-            $table->string('secondary_address');
+            $table->string('name');
+            $table->string('email');
+            $table->string('address');
+            $table->string('postal_code');
             $table->string('phone');
             $table->timestamps();
         });

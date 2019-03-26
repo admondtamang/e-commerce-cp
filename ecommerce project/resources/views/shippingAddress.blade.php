@@ -1,5 +1,3 @@
-@extends('.layouts.app')
-
-@section('content')
-Shipping
+@extends('.layouts.app') 
+@section('content') Shipping
 @endsection
