@@ -138,4 +138,9 @@ class CartController extends Controller
         $items->delete();
         return back()->with('message', 'Deleted Success!');
     }
+    public function proceedToCart()
+    {
+        return;
+        return view('frontEnd/orderPlaced');
+    }
 }

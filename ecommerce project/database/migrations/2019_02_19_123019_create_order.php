@@ -19,9 +19,12 @@ class CreateOrder extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('product_id');
             $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
-            $table->integer('shipping_id');
-            $table->foreign('shipping_id')->references('id')->on('shipping')->onDelete('cascade');
             $table->dateTime('order_date');
+            $table->string('name');
+            $table->string('email');
+            $table->string('address');
+            $table->integer('postal_code');
+            $table->string('phone');
             $table->integer('product_quantity');
             $table->timestamps();
         });

@@ -17,39 +17,47 @@
 </div>
 @endif
 
-<form action="{{route('category.edit')}}" method="POST">
-    @csrf {{-- categoy --}}
-    <div class="form-group {{$errors->has('category')?' has-error':''}}">
-        <input type="text" class="form-control" value="{{$cat->category}}" name="category" placeholder="Category"> @if ($errors->has('category'))
-        <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('category') }}</strong>
-            </span> @endif
+
+<div class="card p-4">
+    <div class="card-header">
+        <h2>Edit Category</h2>
     </div>
+    <div class="card-body">
+        <form action="{{route('category.edit')}}" method="POST">
+            @csrf {{-- categoy --}}
+            <div class="form-group {{$errors->has('category')?' has-error':''}}">
+                <input type="text" class="form-control" value="{{$cat->category}}" name="category" placeholder="Category">                @if ($errors->has('category'))
+                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('category') }}</strong>
+                            </span> @endif
+            </div>
 
-    {{-- Select Category --}}
-    <div class="form-group {{$errors->has('selectCategory')?' has-error':''}}">
+            {{-- Select Category --}}
+            <div class="form-group {{$errors->has('selectCategory')?' has-error':''}}">
 
-        <select class="form-control" name="parent_id">
-            <option value="" disabled selected>Select a Category</option>
-            @foreach ($category as $cat)
-                <option value="{{ $cat->id }}">{{$cat->category}}</option>
-            @endforeach
-        </select> @if ($errors->has('selectCategory'))
-        <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('selectCategory') }}</strong>
-            </span> @endif
+                <select class="form-control" name="parent_id">
+                            <option value="" disabled selected>Select a Category</option>
+                            @foreach ($category as $cat)
+                                <option value="{{ $cat->id }}">{{$cat->category}}</option>
+                            @endforeach
+                        </select> @if ($errors->has('selectCategory'))
+                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('selectCategory') }}</strong>
+                            </span> @endif
+            </div>
+
+
+            {{-- url --}}
+            <div class="form-group {{$errors->has('url')?' has-error':''}}">
+                <input type="text" class="form-control" value="{{$cat->url}}" name="url" placeholder="url"> @if ($errors->has('url'))
+                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('url') }}</strong>
+                            </span> @endif
+            </div>
+
+            <input type="submit" value="Submit" class="btn btn-dark ">
+
+        </form>
     </div>
-
-
-    {{-- url --}}
-    <div class="form-group {{$errors->has('url')?' has-error':''}}">
-        <input type="text" class="form-control" value="{{$cat->url}}" name="url" placeholder="url"> @if ($errors->has('url'))
-        <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('url') }}</strong>
-            </span> @endif
-    </div>
-
-    <input type="submit" value="Submit" class="btn btn-dark ">
-
-</form>
+</div>
 @endsection

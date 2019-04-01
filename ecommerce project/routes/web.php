@@ -23,12 +23,16 @@ Route::group(['prefix' => 'store'], function () {
     Route::get('login', 'Auth\StoreLoginController@showLoginForm')->name('store.login');
     Route::post('login', 'Auth\StoreLoginController@login')->name('store.login.submit');
     Route::resource('/products', 'ProductController');
+    Route::get('/order', 'StoreController@order');
     Route::get('/', 'StoreController@index')->name('store.dashboard');
     //Category
     Route::resource('/category', 'CategoryController');
 });
 
-
+//contact
+Route::get('contact', function () {
+    return view('contact');
+});
 
 //cart
 Route::post('/addToCart', 'CartController@addToCart')->name('addToCart');
@@ -39,9 +43,13 @@ Route::get('/list-products', 'IndexController@shop');
 //wishlist
 Route::get('/wishlist', 'WhishlistController@index');
 
+//Order
+Route::resource('checkout', 'OrderController');
+
+
 Route::get('/allProducts', 'ProductController@allProducts');
 //profile
 Route::resource('/profile', 'ProfileController');
 // Route::get('/profile', 'ProfileController@viewProfile')->name('profile');
-// // Route::get('/editProfile/{id}', 'ProfileController@editProfile')->name('edit.profile');
+Route::put('/editProfile/{id}', 'ProfileController@editProfile')->name('edit.profile');
 // // Route::put('/updateProfile/{id}', 'ProfileController@updateProfile')->name('update.profile'); // Update

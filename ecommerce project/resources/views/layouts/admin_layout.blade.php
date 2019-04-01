@@ -68,19 +68,11 @@
                         </div>
                     </a>
                     <a href="/" class="simple-text logo-normal">
-                      Store Panel
+                      Admin Panel
                     </a>
                 </div>
-                <div class="sidebar-wrapper">
+                <div class="sidebar-wrapper" style="overflow-x: hidden">
                     <ul class="nav">
-
-                        <li class="{{ Request::is('/store') ? " active " : " " }}">
-                            <a href="{{ route('store.dashboard') }}" class="text-bold">
-                            <span class="icon-holder"><i class="fas text-primary fa-home"></i> </span>
-                            Dashboard</a>
-                        </li>
-
-                        <li class="{{ Request::is('/store/category') ? " active " : " " }}"><a href="{{ route('category.index') }}"><span class="icon-holder"><i class="fas text-success fa-bookmark"></i> </span>Category</a></li>
                         <li class="{{ Request::is('/store/products') ? " active " : " " }}"><a href="{{ route('products.index') }}"><span class="icon-holder"><i class="fas text-danger fa-football-ball"></i> </span>Product</a></li>
                         <li class="{{ Request::is('/') ? " active " : " " }}"><a href="{{ route('products.index') }}"><span class="icon-holder"><i class="fas text-secondary fa-football-ball"></i> </span>Chat</a></li>
                     </ul>
@@ -94,10 +86,10 @@
                         <div class="navbar-wrapper">
                             <div class="navbar-toggle">
                                 <button type="button" class="navbar-toggler">
-                                    <span class="navbar-toggler-bar bar1"></span>
-                                    <span class="navbar-toggler-bar bar2"></span>
-                                    <span class="navbar-toggler-bar bar3"></span>
-                                </button>
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                          </button>
                             </div>
                         </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
@@ -153,8 +145,8 @@
                         </section>
                     </div>
                 </main> --}}
-                <script src="{{ asset('js/app.js') }}"></script>
-                <script src="{{ asset('js/paper-dashboard.js')}}"></script>
+
+                <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
 
 </body>
 

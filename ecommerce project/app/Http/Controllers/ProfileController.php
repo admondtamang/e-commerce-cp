@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -23,10 +24,6 @@ class ProfileController extends Controller
             'user' => $user
         ]);
     }
-
-    public function show()
-    { }
-
     function update(Request $request, $id)
     {
         $this->validate($request, [

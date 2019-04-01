@@ -25,9 +25,11 @@
                     <p>Product detail: <b>{{$detail_product->name}}</b></p>
                     <p>Product description: <b>{{$detail_product->description}}</b></p>
                     <p>Product price: <b>{{$detail_product->price}}</b></p>
-                    <p>Product quantity: <b><input type="number" name="stock" value="1" ><b>stock available</b>{{$detail_product->stock_quantity}}</b>
+                    <p>Product quantity: <b><input type="number" name="stock" value="1" ></b></p>
+                    <p>stock available: @if ($detail_product->stock_quantity)
+                        <b>available</b> @else
+                        <b>Out of Stock</b> @endif
                     </p>
-                    <p><b>Total :</b> $</p>
                     <a href=""><img src="{{asset('frontEnd/images/product-details/share.png')}}" class="share img-responsive"  alt="" /></a>
                     <input type="submit" value="Add to Cart" class="addtocart btn btn-success btn-block btn-lg btn-loads">
                 </form>

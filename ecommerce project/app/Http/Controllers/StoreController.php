@@ -20,6 +20,12 @@ class StoreController extends Controller
     {
         return view('store.store');
     }
+    public function order()
+    {
+
+        $products = Product::where('store_id', 1)->orderBy('created_at', 'desc')->get();
+        return view('store.products.index', compact('products'));
+    }
     public function store(Request $req)
     { }
     /**

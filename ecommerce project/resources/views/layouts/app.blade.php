@@ -12,8 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/util.css') }}" rel="stylesheet"> {{--
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet"> {{--
     <link href="{{ asset('css/material-kit.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{asset('easyzoom/css/easyzoom.css')}}" />
 
@@ -71,9 +70,15 @@
                         <div class="cart">
                             <img src="{{asset('images/cart.png')}}" class="img-fluid mr-2" width="50" alt="CART">
                             <div class="checkout d-flex flex-column mt-1">
-                                <a href="{{ url('/cart') }}">Check Out <span class="badge badge-light">{{ App\Cart::count() }}</span></a>
-                                <p>0.00
-                                    <p>
+                                <a href="{{ url('/cart') }}">Check Out 
+                                    <span class="badge badge-warning">
+                                        @if(App\Cart::count()>0)
+                                            {{App\Cart::count()}}
+                                        @else
+                                        @endif
+                                    </span>
+                                </a>
+                                <p>0.00 </p>
                             </div>
                         </div>
                     </div>
@@ -84,7 +89,9 @@
 
         <nav class="navbar-expand-lg mt-3">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bigheart-nav" aria-controls="bigheart-nav"
-                aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
+                aria-expanded="false" aria-label="Toggle navigation">                                    <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span></button>
             <!-- Menu Area Start -->
             <div class="collapse navbar-collapse justify-content-center" id="bigheart-nav">
                 <ul class="navbar-nav" id="bigheart-nav">
@@ -115,7 +122,7 @@
                         <a class="nav-link " href="/about.blade.php">About</a>
                     </li>
                     <li class="nav-item {{ Request::is('/') ? " active " : " " }}">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
+                        <a class="nav-link" href="/contact">Contact Us</a>
                     </li>
                 </ul>
             </div>

@@ -7,10 +7,10 @@ use App\Product;
 
 class ProductController extends Controller
 {
-    function __construct()
-    {
-        // $this->middleware('auth');
-    }
+    // function __construct()
+    // {
+    //     $this->middleware('auth:admin');
+    // }
 
     protected $image_dir = "uploads/products";
 
