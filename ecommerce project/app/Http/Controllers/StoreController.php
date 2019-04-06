@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Http\controllers\controller;
 use Illuminate\Http\Request;
+use App\Product;
+use App\Order;
+use Illuminate\Support\Facades\DB;
 
 class StoreController extends Controller
 {
@@ -22,9 +25,14 @@ class StoreController extends Controller
     }
     public function order()
     {
-
-        $products = Product::where('store_id', 1)->orderBy('created_at', 'desc')->get();
-        return view('store.products.index', compact('products'));
+        $menu_active = 2;
+        $i = 0;
+        //join query to display product related to store
+        // $products=DB::where('store_id',1)->orderBy('created_at','desc')->get();
+        $products = DB::table('orders')
+            ->leftJoin('products', 'products.id', '=', 'orders.product_id')
+            ->get();
+        return view('store.order', compact('menu_active', 'products', 'i'));
     }
     public function store(Request $req)
     { }
@@ -33,4 +41,6 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-}
+ }
+
+ 

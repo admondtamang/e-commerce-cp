@@ -26,7 +26,7 @@
 
 <div class="features_items">
   <!--features_items-->
-  <h2 class="text-center m-5">All Products</h2>
+  <h2 class="text-center m-5 title">All Products</h2>
   <div class="row">
     @foreach($products as $product)
 

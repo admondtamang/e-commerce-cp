@@ -14,22 +14,22 @@ class ProductsSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            'name' => Str::random(10),
+            'name' => 'goldstar',
             'description' => 'kathmadu',
-            'price' => 5254,
+            'price' => 500,
             'stock_quantity' => 52,
-            'image' => '4ea982cec8364788545bc4b8ba7a42ff.jpg',
+            'image' => 'cb0fce07b0c3570e6e04a7a5fdf93bde.jpg',
             'category_id' => 1,
             'store_id' => 1,
         ]);
         DB::table('products')->insert([
-            'name' => Str::random(10),
+            'name' => 'addidas',
             'description' => 'kathmadu',
-            'price' => 2222,
+            'price' => 1000,
             'stock_quantity' => 52,
-            'image' => '4ea982cec8364788545bc4b8ba7a42ff.jpg',
+            'image' => 'ca17910a903b5edf87c726fc661b0027.jpg',
             'category_id' => 1,
-            'store_id' => 1,
+            'store_id' => 2,
         ]);
     }
 }

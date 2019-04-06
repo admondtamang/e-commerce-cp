@@ -26,6 +26,8 @@ class CreateOrder extends Migration
             $table->integer('postal_code');
             $table->string('phone');
             $table->integer('product_quantity');
+            $table->boolean('status');
+            $table->string('payment');
             $table->timestamps();
         });
     }

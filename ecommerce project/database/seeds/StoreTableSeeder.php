@@ -19,5 +19,12 @@ class StoreTableSeeder extends Seeder
             'address' => 'kathmadu',
             'phone' => Str::random(10),
         ]);
+        DB::table('stores')->insert([
+            'name' => Str::random(10),
+            'email' => 'sold@gmail.com',
+            'password' => Hash::make('sold@gmail.com'),
+            'address' => 'kathmadu',
+            'phone' => Str::random(10),
+        ]);
     }
 }

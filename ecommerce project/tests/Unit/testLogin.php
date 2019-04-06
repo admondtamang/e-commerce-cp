@@ -6,33 +6,29 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-// use App\User;
+use App\User;
 
 class testLogin extends TestCase
 {
-    // use DatabaseTransactions;
-    /**
-     * @test
-     * @return void
-     */
-    public function testLogin()
+    use DatabaseTransactions;
+
+    /** @test */
+    public function homePage()
     {
-        $a = 1;
-        $b = 2;
-        $c = $a * $b;
-        // $user = User::create(['name' => 'rupesh', 'email' => 'rupesh@gmail.com', 'password' => 'lll', 'phone' => '985466114', 'gender' => 'male']);
-        $this->assertEquals(2, $c);
+        $this->GET('/')->assertSee('user login');
     }
-    /**
-     * @test
-     * @return void
-     */
+
+    /** @test */
+    public function user_cannot_view_a_login_form_when_authenticated()
+    {
+        $user = factory(User::class)->make();
+        $response = $this->actingAs($user)->get('/login');
+        $response->assertRedirect('/home');
+    }
+
+    /** @test */
     public function register()
     {
-        $a = 1;
-        $b = 2;
-        $c = $a * $b;
-        // $user = User::create(['name' => 'rupesh', 'email' => 'rupesh@gmail.com', 'password' => 'lll', 'phone' => '985466114', 'gender' => 'male']);
-        $this->assertEquals(2, $c);
+        // $user=Us
     }
 }

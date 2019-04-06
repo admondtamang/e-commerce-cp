@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use App\Shipping;
 
 class ProfileController extends Controller
 {
@@ -44,4 +45,22 @@ class ProfileController extends Controller
         ]);
         return back()->with('message', 'Update Profile already!');
     }
+    public function editShipping()
+    {
+        return view('shippingAddress');
+    }
+    public function submitShipping(Request $request)
+    {
+        // dd($request);
+        $req=$request->all();
+        if(!Shipping::find($req['user_id'])){
+            Shipping::create($req);
+        }
+        else{
+            //update query
+        }
+        return view('profile/index')->with('message','shipping updated sucessfully !!!');
+    }
 }
+
+ 

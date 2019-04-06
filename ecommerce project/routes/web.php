@@ -23,7 +23,7 @@ Route::group(['prefix' => 'store'], function () {
     Route::get('login', 'Auth\StoreLoginController@showLoginForm')->name('store.login');
     Route::post('login', 'Auth\StoreLoginController@login')->name('store.login.submit');
     Route::resource('/products', 'ProductController');
-    Route::get('/order', 'StoreController@order');
+    Route::get('/order', 'StoreController@order')->name('store.order');
     Route::get('/', 'StoreController@index')->name('store.dashboard');
     //Category
     Route::resource('/category', 'CategoryController');
@@ -53,3 +53,12 @@ Route::resource('/profile', 'ProfileController');
 // Route::get('/profile', 'ProfileController@viewProfile')->name('profile');
 Route::put('/editProfile/{id}', 'ProfileController@editProfile')->name('edit.profile');
 // // Route::put('/updateProfile/{id}', 'ProfileController@updateProfile')->name('update.profile'); // Update
+
+
+//product search
+Route::post('search', 'SearchController@search')->name('product.search');
+
+
+// shipping
+Route::get('shipping', 'ProfileController@editShipping')->name('edit.shipping');
+Route::post('shipping', 'ProfileController@submitShipping')->name('submit.shipping');

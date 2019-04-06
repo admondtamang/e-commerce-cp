@@ -31,13 +31,18 @@ class OrderController extends Controller
 
         //for product id
         $session_id = Session::get('session_id');
-        $cart_datas = Cart::where('session_id', $session_id)->first();
-        $input_data['order_date'] = now();
-        // dd($cart_datas)  ;
-        $input_data['product_id'] = $cart_datas['product_id'];
+        $cart_datas = Cart::where('session_id', $session_id)->get();
+        // dd($cart_datas);
+        foreach ($cart_datas as $data) {
+            $input_data['order_date'] = now();
+            // dd($cart_datas)  ;
+            $input_data['product_id'] = $data['product_id'];
+            $input_data['status'] = 0;
+            $input_data['payment'] = 'cod';
 
-        $input_data['product_quantity'] = $cart_datas['quantity'];
-        Order::create($input_data);
+            $input_data['product_quantity'] = $data['quantity'];
+            Order::create($input_data);
+        }
         // if ($payment_method == "COD") {
         //     return redirect('/cod');
         // } else {

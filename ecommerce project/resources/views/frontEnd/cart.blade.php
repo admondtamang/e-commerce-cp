@@ -25,18 +25,14 @@
                     <tr>
                         <td data-th="Product">
                             <div class="row">
-                                <div class="col-sm-2 col-md-2 hidden-xs ">
-                                    <img src="http://placehold.it/100x100" alt="..." class="img-responsive" />
-                                </div>
-                                <div class="col-sm-10 col-md-10">
-                                    <h4 class="nomargin">{{$cart_data->name}}</h4>
-                                    <p>{{$cart_data->name}}</p>
-                                </div>
+                                <img src="" alt="..." class="img-responsive mr-2" />
+
+                                <h4 class="nomargin">{{$cart_data->name}}</h4>
                             </div>
                         </td>
                         <td data-th="Price">{{$cart_data->price}}</td>
                         <td data-th="Quantity">
-                            <input type="number" class="form-control text-center" value="1">
+                            <input type="number" class="form-control text-center" value="{{$cart_data->quantity}}">
                         </td>
                         <td data-th="Subtotal" class="text-center">{{$cart_data->price*$cart_data->quantity}}</td>
 
@@ -63,7 +59,7 @@
                 <tfoot>
                     <td><a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                     <td colspan="2" class="hidden-xs"></td>
-                    <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+                    <td class="hidden-xs text-center"><strong>Total {{$total_price}}</strong></td>
                     <td>
                         <a class="btn btn-dark check_out" href="{{route('checkout.index')}}"><i class="d-inline mr-1 fas fa-shopping-basket"></i>CheckOut</a>
                     </td>

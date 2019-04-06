@@ -24,12 +24,45 @@ a:focus {
 ul {
     list-style: none;
 }
+.card {
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    color: #252422;
+    margin-bottom: 20px;
+    position: relative;
+    border: 0 none;
+    -webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1),
+        box-shadow 200ms ease;
+    -moz-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1),
+        box-shadow 200ms ease;
+    -o-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1),
+        box-shadow 200ms ease;
+    -ms-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1),
+        box-shadow 200ms ease;
+    transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1),
+        box-shadow 200ms ease;
+}
+.card .card-header:not([data-background-color]) {
+    background-color: transparent;
+}
 
+.card .card-header {
+    padding: 15px 15px 0;
+    border: 0;
+}
+.card-header:first-child {
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
 //nav
 .active {
     color: red;
 }
-
+.title {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #333;
+}
 //form
 
 .form-control {
@@ -71,10 +104,8 @@ ul {
 
 #app {
     .ribbon {
-        background: red;
-        margin-bottom: 2rem;
         width: 100%;
-        background: black;
+        background: #333;
         ul {
             display: flex;
             justify-content: flex-end;
@@ -91,6 +122,7 @@ ul {
         }
     }
     header {
+        margin: 2.5rem 0;
         .brand {
             font-weight: bold;
         }
@@ -158,7 +190,7 @@ ul {
 //footer
 
 #footer {
-    padding: 30px 0;
+    padding: 40px 0;
 }
 .footer {
     color: #484848;

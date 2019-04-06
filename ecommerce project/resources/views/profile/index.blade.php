@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.app') 
 @section('content')
 
 <div class="row profile">
     <aside class="col-lg-4">
-        <ul> 
+        <ul>
             <li>
                 <h6 class="active">Mangage Account</h6>
                 <ul>
@@ -14,14 +14,18 @@
             </li>
             <li>Your orders</li>
             <h6 href="#">Order list</h6>
-                <ul>
-                    <li><a href="#">Order List</a></li>
-                    <li><a href="#">Order Arrived</a></li>
-                    <li><a href="#">Order Cancel</a></li>
-                </ul>
-                
-            <li><h6>Reviews</h6></li>
-            <li><h6>My wishlist</h6></li>
+            <ul>
+                <li><a href="#">Order List</a></li>
+                <li><a href="#">Order Arrived</a></li>
+                <li><a href="#">Order Cancel</a></li>
+            </ul>
+
+            <li>
+                <h6>Reviews</h6>
+            </li>
+            <li>
+                <h6>My wishlist</h6>
+            </li>
         </ul>
     </aside>
     <article class="col-lg-8">
@@ -29,7 +33,7 @@
             <div class="col-lg-6">
                 <div class="card p-4">
                     <h2>Hello {{ Auth::user()->name }}</h2>
-                <a href="{{ url('/editProfile',Auth::user()->id) }}">Edit</a>
+                    <a href="{{ url('/editProfile',Auth::user()->id) }}">Edit</a>
                     <ul>
                         <li><b>Name:</b>{{Auth::user()->name}}</li>
                         <li><b>Phone:</b> {{ Auth::user()->phone }}</li>
@@ -40,16 +44,17 @@
             <div class="col-lg-6">
                 <div class="card p-4">
                     <h2>Shipping Address</h2>
-                    <a href="#">Edit</a>
+                    <a href="{{route('edit.shipping')}}">Edit</a>
                     <span class="text-muted">Default Shipping Address</span>
                     <ul>
-                        <li><b>Address:</b> Macchapokhari</li>
-                        <li><b>Phone:</b> 977 9852226666</li>
+                        <li><b>Address:</b> None</li>
+                        <li><b>Phone:</b> None</li>
+                        <li><b>Email:</b> None</li>
+                        <li><b>Phone:</b> None</li>
                     </ul>
                 </div>
             </div>
         </div>
     </article>
 </div>
-
 @endsection

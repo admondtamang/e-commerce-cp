@@ -66,7 +66,11 @@ class ProductController extends Controller
         $product->save();
         return redirect()->route('products.create')->with('message', 'Add Products Successfully!');
     }
-
+    public function findStoreId($id)
+    {
+        $store_id = Product::where('id', $id)->first();
+        return $store_id;
+    }
 
     public function allProducts()
     {

@@ -26,7 +26,7 @@ class CartController extends Controller
         $cart_datas = Cart::where('session_id', $session_id)->get();
         $total_price = 0;
         foreach ($cart_datas as $cart_data) {
-            $total_price += $cart_data->price * $cart_data->product_quantity;
+            $total_price += $cart_data->price * $cart_data->quantity;
         }
         return view('frontEnd.cart', compact('cart_datas', 'total_price'));
     }
@@ -36,13 +36,12 @@ class CartController extends Controller
         $this->validate(
             $request,
             [
-                'stock' => 'required|min:0|integer'
+                'quantity' => 'required|min:0|integer'
             ]
         );
         $inputToCart = $request->all();
-        // dd($inputToCart);
         $stockAvailable = Product::select('stock_quantity')->where('id', $inputToCart['product_id'])->first();
-        if ($stockAvailable['stock_quantity'] >= $inputToCart['stock']) {
+        if ($stockAvailable['stock_quantity'] >= $inputToCart['quantity']) {
 
             //if session is not available create one
             $session_id = Session::get('session_id');
@@ -60,7 +59,7 @@ class CartController extends Controller
                 // Add if products details are available
             ])->count();
             if ($count_duplicateProducts > 0) {
-                return back()->with('message', 'Product is already added!!');
+                return back()->with(' message ', ' Product is already ad ded!!');
             } else {
                 //Cart added
                 Cart::create($inputToCart);

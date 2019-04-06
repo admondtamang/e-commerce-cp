@@ -78,11 +78,12 @@
                             <a href="{{ route('store.dashboard') }}" class="text-bold">
                             <span class="icon-holder"><i class="fas text-primary fa-home"></i> </span>
                             Dashboard</a>
+
                         </li>
 
                         <li class="{{ Request::is('/store/category') ? " active " : " " }}"><a href="{{ route('category.index') }}"><span class="icon-holder"><i class="fas text-success fa-bookmark"></i> </span>Category</a></li>
                         <li class="{{ Request::is('/store/products') ? " active " : " " }}"><a href="{{ route('products.index') }}"><span class="icon-holder"><i class="fas text-danger fa-football-ball"></i> </span>Product</a></li>
-                        <li class="{{ Request::is('/') ? " active " : " " }}"><a href="{{ route('products.index') }}"><span class="icon-holder"><i class="fas text-secondary fa-football-ball"></i> </span>Chat</a></li>
+                        <li class="{{ Request::is('/') ? " active " : " " }}"><a href="{{ route('store.order') }}"><span class="icon-holder"><i class="fas text-secondary fa-football-ball"></i> </span>Order</a></li>
                     </ul>
 
                 </div>

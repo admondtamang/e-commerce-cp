@@ -20,6 +20,7 @@ class CreateShipping extends Migration
             $table->string('address');
             $table->string('postal_code');
             $table->string('phone');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

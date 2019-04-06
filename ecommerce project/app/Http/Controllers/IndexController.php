@@ -12,6 +12,7 @@ class IndexController extends Controller
         $products = Product::all();
         return view('home', compact('products'));
     }
+
     public function shop()
     {
         $products = Product::all();
@@ -32,14 +33,5 @@ class IndexController extends Controller
         // $totalStock = ProductAtrr_model::where('products_id', $id)->sum('stock');
         // $relateProducts = Product::where([['id', '!=', $id], ['categories_id', $detail_product->categories_id]])->get();
         return view('frontEnd.product_details', compact('detail_product'));
-    }
-    public function getAttrs(Request $request)
-    {
-        $all_attrs = $request->all();
-        //print_r($all_attrs);die();
-        $attr = explode('-', $all_attrs['size']);
-        //echo $attr[0].' <=> '. $attr[1];
-        $result_select = ProductAtrr_model::where(['products_id' => $attr[0], 'size' => $attr[1]])->first();
-        echo $result_select->price . "#" . $result_select->stock;
     }
 }

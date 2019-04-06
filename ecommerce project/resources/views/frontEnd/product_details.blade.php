@@ -21,16 +21,18 @@
                     <input type="hidden" value="{{$detail_product->id}}" name="product_id">
                     <input type="hidden" value="{{ $detail_product->name }}" name="name">
                     <input type="hidden" value="{{ $detail_product->price }}" name="price">
-                    <input type="hidden" value="{{ $detail_product->stock_quantity }}" name="quantity">
+                    <input type="hidden" value="{{ $detail_product->stock_quantity }}" name="stock">
+
                     <p>Product detail: <b>{{$detail_product->name}}</b></p>
                     <p>Product description: <b>{{$detail_product->description}}</b></p>
                     <p>Product price: <b>{{$detail_product->price}}</b></p>
-                    <p>Product quantity: <b><input type="number" name="stock" value="1" ></b></p>
-                    <p>stock available: @if ($detail_product->stock_quantity)
+                    <p>Product quantity: <b><input type="number" name="quantity" value="1" ></b></p>
+                    <p>stock: @if ($detail_product->stock_quantity)
                         <b>available</b> @else
                         <b>Out of Stock</b> @endif
                     </p>
-                    <a href=""><img src="{{asset('frontEnd/images/product-details/share.png')}}" class="share img-responsive"  alt="" /></a>
+                    <a href=""><img src="{{asset('frontEnd/images/product-details/share.png')}}" 
+                        class="share img-responsive"  alt="" /></a>
                     <input type="submit" value="Add to Cart" class="addtocart btn btn-success btn-block btn-lg btn-loads">
                 </form>
                 {{--

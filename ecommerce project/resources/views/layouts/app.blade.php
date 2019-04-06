@@ -59,7 +59,11 @@
             <div class="container">
                 <div class="row">
                     <div class="search col-xs-4 col-md-4 col-lg-4 pt-1">
-                        <input type="search" class="materialTextbox" name="search" tabindex="2"><i class="fas fa-search"></i>
+                        <form action="{{route('product.search')}}" method="POST">
+                            @csrf
+                            <input type="text" class="materialTextbox text-dark" name="search" tabindex="2">
+                            <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+                        </form>
                     </div>
                     <div class="brand col-xs-4 col-md-4 col-lg-4 d-flex justify-content-center">
                         <a class="navbar-brand" href="{{ url('/') }}">
@@ -72,10 +76,10 @@
                             <div class="checkout d-flex flex-column mt-1">
                                 <a href="{{ url('/cart') }}">Check Out 
                                     <span class="badge badge-warning">
-                                        @if(App\Cart::count()>0)
+                                        {{-- @if(App\Cart::count()>0)
                                             {{App\Cart::count()}}
                                         @else
-                                        @endif
+                                        @endif --}}
                                     </span>
                                 </a>
                                 <p>0.00 </p>

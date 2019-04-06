@@ -1,7 +1,5 @@
 @extends('.layouts.app') 
 @section('content')
-
-
 <form action="{{route('checkout.store')}}" method="POST">
     <div class="row">
         <div class="col-xs-6 col-md-6">
@@ -21,7 +19,7 @@
                     <span class="text-danger">{{$errors->first('email')}}</span>
                 </div>
                 <div class="form-group {{$errors->has('postal_code')?'has-error':''}}">
-                    <input type="text" class="form-control" name="postal_code" value="" id="postal_code" placeholder="Postal Code">
+                    <input type="number" class="form-control" name="postal_code" value="" id="postal_code" placeholder="Postal Code">
                     <span class="text-danger">{{$errors->first('postal_code')}}</span>
                 </div>
                 <div class="form-group {{$errors->has('phone')?'has-error':''}}">
