@@ -29,6 +29,18 @@ class testLogin extends TestCase
     /** @test */
     public function register()
     {
-        // $user=Us
+        $user = factory(User::class)->make();
     }
+
+    /** @test */
+    public function updateProfile()
+    {
+        $user = factory(User::class)->make();
+    }
+    public function addToCart()
+    { }
+    public function orderProduct()
+    { }
+    public function addShipping()
+    { }
 }

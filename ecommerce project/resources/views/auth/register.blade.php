@@ -41,9 +41,9 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
 
                             <div class="col-md-6">
-                                <input type="radio" name="Male" id="male"> Male
-                                <input type="radio" name="Female" id="Female"> Female
-                                <input type="radio" name="Others" id="Others">Others @if ($errors->has('gender'))
+                                <input type="radio" value="Male" name="gender" id="male"> Male
+                                <input type="radio" value="Female" name="gender" id="Female"> Female
+                                <input type="radio" value="Others" name="gender" id="Others">Others @if ($errors->has('gender'))
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('gender') }}</strong>
                                     </span> @endif

@@ -30,7 +30,7 @@
                     <a href="{{ route('register') }}"><i class="fa fa-user-circle mr-1"></i>{{ __('Register') }}</a>
                 </li>
                 @endif @else
-                <li><a href="#"><i class="fa fa-heart mr-1"></i>WhishList</a></li>
+                <li><a href="{{route('wishlist.index')}}"><i class="fa fa-heart mr-1"></i>WishList</a></li>
                 <li><a href="{{ route('profile.index') }}"><i class="fa fa-sign-in-alt mr-1"></i>{{ __('Profile') }}</a></li>
 
                 <li class="nav-item dropdown">
@@ -76,10 +76,10 @@
                             <div class="checkout d-flex flex-column mt-1">
                                 <a href="{{ url('/cart') }}">Check Out 
                                     <span class="badge badge-warning">
-                                        {{-- @if(App\Cart::count()>0)
+                                        {{-- @if(App\Cart::count()->where('session_id',App\Cart)>0)
                                             {{App\Cart::count()}}
                                         @else
-                                        @endif --}}
+                                        @endif  --}}
                                     </span>
                                 </a>
                                 <p>0.00 </p>

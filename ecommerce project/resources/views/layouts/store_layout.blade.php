@@ -19,42 +19,6 @@
 
 <body>
     <div id="app">
-        {{--
-        <div class="ribbon">
-            <ul class="container">
-                @guest
-                <li><a href="{{ route('login') }}"><i class="fa fa-sign-in-alt mr-1"></i>{{ __('User Login') }}</a></li>
-                <li><a href="{{ route('store.login') }}"><i class="fa fa-sign-in-alt mr-1"></i>{{ __('Store Login') }}</a></li>
-                @if (Route::has('register'))
-                <li>
-                    <a href="{{ route('register') }}"><i class="fa fa-user-circle mr-1"></i>{{ __('Register') }}</a>
-                </li>
-                @endif @else
-                <li><a href="#"><i class="fa fa-heart mr-1"></i>WhishList</a></li>
-                <li><a href="{{ route('profile.index') }}"><i class="fa fa-sign-in-alt mr-1"></i>{{ __('Profile') }}</a></li>
-
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                        v-pre>
-                        <i class="fa fa-user-circle mr-1" aria-hidden="true"></i>{{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <i class="fas fa-sign-out-alt mr-2"></i>{{ __('Logout') }}
-                                    </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
-                @endguest
-            </ul>
-        </div> --}} {{-- End of ribbon --}}
-
-
         <div class="wrapper ">
             <div class="sidebar" data-color="white" data-active-color="danger">
                 <!--
@@ -68,22 +32,27 @@
                         </div>
                     </a>
                     <a href="/" class="simple-text logo-normal">
-                      Store Panel
+                      Store Panel 
                     </a>
                 </div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
 
-                        <li class="{{ Request::is('/store') ? " active " : " " }}">
-                            <a href="{{ route('store.dashboard') }}" class="text-bold">
+                        <li class="{{ Request::is('store') ? " active " : " " }}">
+                            <a href="{{ route('store.dashboard') }}" class="">
                             <span class="icon-holder"><i class="fas text-primary fa-home"></i> </span>
                             Dashboard</a>
 
                         </li>
 
-                        <li class="{{ Request::is('/store/category') ? " active " : " " }}"><a href="{{ route('category.index') }}"><span class="icon-holder"><i class="fas text-success fa-bookmark"></i> </span>Category</a></li>
-                        <li class="{{ Request::is('/store/products') ? " active " : " " }}"><a href="{{ route('products.index') }}"><span class="icon-holder"><i class="fas text-danger fa-football-ball"></i> </span>Product</a></li>
-                        <li class="{{ Request::is('/') ? " active " : " " }}"><a href="{{ route('store.order') }}"><span class="icon-holder"><i class="fas text-secondary fa-football-ball"></i> </span>Order</a></li>
+                        <li class="{{ Request::is('store/category') ? " active " : " " }}"><a href="{{ route('category.index') }}"><span class="icon-holder"><i class="fas text-success fa-bookmark"></i> </span>Category</a></li>
+                        <li class="{{ Request::is('store/products') ? " active " : " " }}"><a href="{{ route('products.index') }}"><span class="icon-holder"><i class="fab fa-product-hunt"></i></i> </span>Product</a></li>
+                        <li class="{{ Request::is('store/order') ? " active " : " " }}"><a href="{{ route('store.order') }}"><span class="icon-holder"><i class="fas text-secondary fa-football-ball"></i> </span>Order</a></li>
+                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"><span class="icon-holder"><i class="fas fa-sign-out-alt"></i> </span>Logout</a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </ul>
 
                 </div>
@@ -127,36 +96,9 @@
                 </div>
 
 
-                {{--
-                <main class="py-4 container">
-                    <div class="row">
-                        <aside class="col-xs-4 col-lg-4">
-                            <div class="logo">
-                                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                                    <div class="logo-image-small">
-                                        <a class="navbar-brand" href="{{ url('/') }}">
-                                    <img src="{{asset('images/shop.png')}}" class="img-fluid mr-1" width="70" alt="{{ config('app.name', 'Laravel') }}">
-                                    Admin Dashboard
-                                </a>
-                                    </div>
-                                </a>
-                            </div>
-                            <ul class="sidebar-menu">
-                                <li><a href="{{ route('store.dashboard') }}"><span class="icon-holder"><i class="fas text-primary fa-home"></i> </span>Dashboard</a></li>
-                                <li><a href="{{ route('category.index') }}"><span class="icon-holder"><i class="fas text-success fa-bookmark"></i> </span>Category</a></li>
-                                <li><a href="{{ route('products.index') }}"><span class="icon-holder"><i class="fas text-danger fa-football-ball"></i> </span>Product</a></li>
-                                <li><a href="{{ route('products.index') }}"><span class="icon-holder"><i class="fas text-secondary fa-football-ball"></i> </span>Chat</a></li>
-                            </ul>
-                        </aside>
-                        <section class="col-xs-8 col-lg-8">
 
-                            @yield('content')
-                        </section>
-                    </div>
-                </main> --}}
                 <script src="{{ asset('js/app.js') }}"></script>
                 <script src="{{ asset('js/paper-dashboard.js')}}"></script>
-
 </body>
 
 </html>

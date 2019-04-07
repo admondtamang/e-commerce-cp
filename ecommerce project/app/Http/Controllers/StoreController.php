@@ -31,6 +31,7 @@ class StoreController extends Controller
         // $products=DB::where('store_id',1)->orderBy('created_at','desc')->get();
         $products = DB::table('orders')
             ->leftJoin('products', 'products.id', '=', 'orders.product_id')
+            ->where('store_id', auth('store')->user()->id)
             ->get();
         return view('store.order', compact('menu_active', 'products', 'i'));
     }
@@ -41,6 +42,4 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
- }
-
- 
+}

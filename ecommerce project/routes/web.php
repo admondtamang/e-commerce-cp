@@ -41,7 +41,7 @@ Route::resource('/cart', 'CartController');
 Route::get('/list-products', 'IndexController@shop');
 
 //wishlist
-Route::get('/wishlist', 'WhishlistController@index');
+Route::resource('/wishlist', 'WishlistController');
 
 //Order
 Route::resource('checkout', 'OrderController');

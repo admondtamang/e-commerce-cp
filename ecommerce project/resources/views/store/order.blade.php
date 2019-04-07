@@ -27,7 +27,7 @@
                     <td style="text-align: center;"><img src="{{url('uploads/products/',$product->image)}}" alt="" width="50"></td>
                     {{--
                     <td style="vertical-align: middle;">{{$product->category}}</td> --}}
-                    <td style="vertical-align: middle;">{{$product->stock_quantity}}</td>
+                    <td style="vertical-align: middle;">{{$product->product_quantity}}</td>
                     <td style="vertical-align: middle;">{{$product->price}}</td>
                     <td style="text-align: center; vertical-align: middle;">
                         <a href="#myModal{{$product->id}}" data-toggle="modal" class="btn btn-outline-success btn-mini"><i class="fas fa-eye mr-2"></i>Delivered</a>                        {{-- <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary btn-mini">Edit</a> --}}

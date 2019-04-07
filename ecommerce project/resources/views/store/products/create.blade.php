@@ -24,15 +24,29 @@
         <div class="card-body">
 
             <form action="{{route('products.store')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
-                @csrf {{--
+                @csrf
                 <div class="form-group">
                     <label class="control-label">Select Category</label>
                     <div class="controls">
-                        <select name="categories_id" style="width: 415px;">
+                        <select name="category_id" class="form-control" style="width: 415px;">
+                            @foreach($categories as $key=>$value)
+                                <option value="{{$key}}">{{$value}}</option>
+                                <?php
+                                    if($key!=0){
+                                        $sub_categories=DB::table('categories')->select('id','category')->where('parent_id',$key)->get();
+                                        if(count($sub_categories)>0){
+                                            foreach ($sub_categories as $sub_category){
+                                                echo '<option value="'.$sub_category->id.'">&nbsp;&nbsp;--'.$sub_category->category.'</option>';
+                                            }
+                                        }
+                                    }
+                                ?>
+                            @endforeach
+                        </select>
 
-                </select>
+                        </select>
                     </div>
-                </div> --}}
+                </div>
                 <div class="form-group">
                     <div class="controls{{$errors->has('name')?' has-error':''}}">
                         <input type="text" name="name" id="name" placeholder="Product name" class="form-control " value="{{old('name')}}" title=""

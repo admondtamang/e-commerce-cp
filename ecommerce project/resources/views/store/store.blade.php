@@ -5,6 +5,7 @@
         <h2>Store Profile</h2>
     </div>
     <div class="card-body">
+        <h2>Hello, {{ Auth::guard('store')->user()->name }}</h2>
 
     </div>
 </div>
