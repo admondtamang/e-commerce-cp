@@ -18,6 +18,7 @@
 </head>
 
 <body>
+
     <div id="app">
         <div class="wrapper ">
             <div class="sidebar" data-color="white" data-active-color="danger">
@@ -25,13 +26,13 @@
                     Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
                 -->
                 <div class="logo">
-                    <a href="/" class="simple-text logo-mini">
+                    <a href="{{ route('store.dashboard') }}" class="simple-text logo-mini">
                         <div class="logo-image-small">
                             <img src="{{asset('images/shop.png')}}" class="img-fluid mr-1" width="70" alt="{{ config('app.name', 'Laravel') }}">                            }}
 
                         </div>
                     </a>
-                    <a href="/" class="simple-text logo-normal">
+                    <a href="{{ route('store.dashboard') }}" class="simple-text logo-normal">
                       Store Panel 
                     </a>
                 </div>
@@ -58,6 +59,7 @@
                 </div>
             </div>
             <div class="main-panel">
+
                 <!-- Navbar -->
                 <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
                     <div class="container-fluid">
@@ -97,8 +99,15 @@
 
 
 
-                <script src="{{ asset('js/app.js') }}"></script>
+                {{--
+                <script src="{{ asset('js/app.js') }}"></script> --}}
+
+                <script src="{{ asset('js/core/jquery.min.js')}}" type="text/javascript"></script>
+                <script src="{{ asset('js/core/popper.min.js')}}" type="text/javascript"></script>
+                <script src="{{ asset('js/core/bootstrap.min.js')}}" type="text/javascript"></script>
+                <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js')}}" type="text/javascript"></script>
                 <script src="{{ asset('js/paper-dashboard.js')}}"></script>
+                <script src="{{ asset('js/jquery.min.js " ')}}></script>
 </body>
 
 </html>

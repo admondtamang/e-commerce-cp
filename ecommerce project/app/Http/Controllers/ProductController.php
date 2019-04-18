@@ -9,12 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    // function __construct()
-    // {
-    //     $this->middleware('auth:admin');
-    // }
+    function __construct()
+    {
+        $this->middleware('auth:store');
+    }
 
     protected $image_dir = "uploads/products";
+
 
     public function index()
     {
@@ -83,11 +84,11 @@ class ProductController extends Controller
         return $store_id;
     }
 
-    public function allProducts()
-    {
-        $product = Product::find(all);
-        return view('allProducts')->with('products', $product);
-    }
+    // public function allProducts()
+    // {
+    //     $product = Product::find(all);
+    //     return view('allProducts')->with('products', $product);
+    // }
 
     public function destroy($id)
     {

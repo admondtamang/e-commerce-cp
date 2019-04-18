@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Http\controllers\controller;
 use Illuminate\Http\Request;
+use App\Product;
+use App\Store;
+use App\Category;
 
 class AdminController extends Controller
 {
@@ -14,15 +17,34 @@ class AdminController extends Controller
      * @return void
      */
     public function __construct()
-    { }
+    {
+        $this->middleware('auth:admin');
+    }
 
     public function index()
     {
-        return view('admin');
+        return view('admin.admin');
     }
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+
+    public function viewCategory()
+    {
+        $category = Category::all();
+        return view('admin/category/index')->with('category', $category);
+    }
+
+    public function allProducts()
+    {
+        $menu_active = 2;
+        $i = 0;
+
+        // $product = Product::with('category')->get();
+        // dd($product);
+        $products = Product::orderBy('created_at', 'desc')->get();
+        return view('admin.products.index', compact('menu_active', 'products', 'i'));
+    }
+    public function viewUser()
+    {
+        $user = Store::all();
+        return view('admin.user')->with('users', $user);
+    }
 }

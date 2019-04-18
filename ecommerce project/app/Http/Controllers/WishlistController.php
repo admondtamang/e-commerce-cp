@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Wishlist;
 
-class WhishlistController extends Controller
+class WishlistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,7 +37,9 @@ class WhishlistController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $data = $request->all();
+        Wishlist::create($data);
+        return back()->with('message', 'Sucessfully added to WishList');
     }
 
     /**

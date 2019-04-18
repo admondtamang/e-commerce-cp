@@ -4,29 +4,71 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use Illuminate\Support\Facades\DB;
-use App\Shipping;
 
 class ProfileController extends Controller
 {
-    function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
         return view('profile.index');
     }
 
-    function editProfile($id)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-
-        $user = User::find($id);
-        if (!$user)
-            return redirect()->back();
-
-        return view('profile.editProfile', [
-            'user' => $user
-        ]);
+        //
     }
-    function update(Request $request, $id)
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    { }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $user = User::find($id);
+        return view('profile.editProfile')->with('user', $user);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+
         $this->validate($request, [
             'name' => 'required|max:150',
             'email' => 'nullable|email',
@@ -36,15 +78,29 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->all();
-        DB::table('users')->where('id', $id)->update([
-            'name' => $user['name'],
-            'email' => $user['email'],
-            'gender' => $user['gender'],
-            'phone' => $user['phone'],
-            'password' => $user['password'],
-        ]);
-        return back()->with('message', 'Update Profile already!');
+
+        User::find($id)->update($user);
+        // DB::table('users')->where('id', $id)->update([
+        //     'name' => $user['name'],
+        //     'email' => $user['email'],
+        //     'gender' => $user['gender'],
+        //     'phone' => $user['phone'],
+        //     'password' => $user['password'],
+        // ]);
+        return redirect()->route('profile.index')->with('message', 'Profile Updated!');
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
     public function editShipping()
     {
         return view('shippingAddress');
@@ -52,15 +108,12 @@ class ProfileController extends Controller
     public function submitShipping(Request $request)
     {
         // dd($request);
-        $req=$request->all();
-        if(!Shipping::find($req['user_id'])){
+        $req = $request->all();
+        if (!Shipping::find($req['user_id'])) {
             Shipping::create($req);
-        }
-        else{
+        } else {
             //update query
         }
-        return view('profile/index')->with('message','shipping updated sucessfully !!!');
+        return view('profile/index')->with('message', 'shipping updated sucessfully !!!');
     }
 }
-
- 

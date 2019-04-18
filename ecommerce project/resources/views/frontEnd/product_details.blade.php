@@ -35,7 +35,7 @@
                 </form>
                 @guest
                 <button type="submit" class=" btn btn-block btn-lg btn-loads"><i class="fas fa-heart" aria-hidden="true"></i> Add to Wishlist</button>                @else
-                <form action="{{route('wishlist.store')}}" method="post">
+                <form action="{{ route('wishlist.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="product_id" value="{{$detail_product->id}}">
                     <input type="hidden" name="user_id" value=" @if(auth()->user()->id) {{auth()->user()->id}}@endif">

@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable = ['user_id', 'product_id', 'order_date', 'product_quantity', 'address', 'phone', 'email', 'postal_code', 'name', 'status', 'payment'];
+    protected $fillable = [
+        'user_id', 'product_id', 'order_date', 'product_quantity',
+        'address', 'phone', 'email', 'postal_code', 'name', 'status', 'payment'
+    ];
     public function findStore()
     {
         return $this->BelongsTo(Store::class);

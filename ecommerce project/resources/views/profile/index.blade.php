@@ -33,7 +33,7 @@
             <div class="col-lg-6">
                 <div class="card p-4">
                     <h2>Hello {{ Auth::user()->name }}</h2>
-                    <a href="{{ url('/editProfile',Auth::user()->id) }}">Edit</a>
+                    <a href="{{route('profile.edit',Auth::user()->id) }}">Edit</a>
                     <ul>
                         <li><b>Name:</b>{{Auth::user()->name}}</li>
                         <li><b>Phone:</b> {{ Auth::user()->phone }}</li>

@@ -4,7 +4,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <div class="img"><img class="d-block img-fluid" src="{{asset('images/banner01.jpg')}}" alt="First slide"></div>
+      <div class="myImg"><img class="d-block img-fluid" style="background:cover;" src="{{asset('images/banner01.jpg')}}" alt="Second slide"></div>
     </div>
     <div class="carousel-item">
       <div class="img"><img class="d-block img-fluid" src="{{asset('images/banner02.jpg')}}" alt="Second slide"></div>
@@ -38,31 +38,14 @@
         <div class="caption text-center m-2">
           <h3 itemprop="name"><a href="{{url('/product-detail',$product->id)}}" title="Geo Tray">{{$product->name}}</a></h3>
           <a href="{{url('/product-detail',$product->id)}}">
-                <span>$88.00 </span>
+                <span>Rs. {{$product->price}} </span>
               </a>
         </div>
       </div>
     </article>
-    {{--
-    <div class="col-sm-4">
-      <div class="product-image-wrapper">
-        <div class="single-products">
-          <div class="productinfo text-center">
-            <a href="{{url('/product-detail',$product->id)}}"><img src="{{url('uploads/products/',$product->image)}}" alt="" /></a>
-            <h2>$ {{$product->price}}</h2>
-            <p>{{$product->name}}</p>
-            <a href="{{url('/product-detail',$product->id)}}" class="btn btn-default add-to-cart">View Product</a>
-          </div>
-        </div>
-        <div class="choose">
-          <ul class="nav nav-pills nav-justified">
-            <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-            <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-          </ul>
-        </div>
-      </div>
-    </div> --}} @endforeach
+    @endforeach
   </div>
 </div>
+
 <!--features_items-->
 @endsection

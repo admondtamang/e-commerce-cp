@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use App\Category;
+use App\Store;
 
 class IndexController extends Controller
 {
@@ -19,9 +21,14 @@ class IndexController extends Controller
         $byCate = "";
         return view('frontEnd.products', compact('products', 'byCate'));
     }
+    public function viewUser()
+    {
+        $user = Store::all();
+        return view('store')->with('users', $user);
+    }
     public function listByCat($id)
     {
-        $list_product = Product::where('categories_id', $id)->get();
+        $list_product = Product::where('category_id', $id)->get();
         $byCate = Category::select('category')->where('id', $id)->first();
         return view('frontEnd.products', compact('list_product', 'byCate'));
     }
@@ -29,9 +36,6 @@ class IndexController extends Controller
     public function detialproduct($id)
     {
         $detail_product = Product::findOrFail($id);
-        // $imagesGalleries = ImageGallery_model::where('products_id', $id)->get();
-        // $totalStock = ProductAtrr_model::where('products_id', $id)->sum('stock');
-        // $relateProducts = Product::where([['id', '!=', $id], ['categories_id', $detail_product->categories_id]])->get();
         return view('frontEnd.product_details', compact('detail_product'));
     }
 }

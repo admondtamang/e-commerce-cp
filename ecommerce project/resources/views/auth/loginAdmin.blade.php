@@ -5,68 +5,44 @@
     <div class="container">
         <form method="POST" action="{{ route('admin.login.submit') }}">
             @csrf
-            <h1 class="login-heading">Login</h1>
+            <h1 class="login-heading">Admin Login</h1>
             <p>
-                    <input
-                    id="email"
-                    type="email"
-                    class="inputBoxs form-control {{ $errors->has('email') ? 'text-danger' : '' }}"
-                    name="email"
-                    placeholder="Email"
-                    value="{{ old('email') }}"
-                    required
-                    autofocus
-                />
-
-                @if ($errors->has('email'))
+                <input id="email" type="email" class="inputBoxs form-control {{ $errors->has('email') ? 'text-danger' : '' }}" name="email"
+                    placeholder="Email" value="{{ old('email') }}" required autofocus /> @if ($errors->has('email'))
                 <span class="text-danger" role="alert">
                     <strong
                         >{{ $errors->first('email') }}</strong
                     >
-                </span>
-                @endif
+                </span> @endif
             </p>
 
 
             <p>
-                <input
-                    id="password"
-                    type="password"
-                    placeholder="{{ __('Password') }}"
-                    class="form-control inputBoxs{{ $errors->has('password') ? 'text-danger' : '' }}"
-                    name="password"
-                    required
-                />
-                    @if ($errors->has('email'))
-                    <span class="text-danger" role="alert">
+                <input id="password" type="password" placeholder="{{ __('Password') }}" class="form-control inputBoxs{{ $errors->has('password') ? 'text-danger' : '' }}"
+                    name="password" required /> @if ($errors->has('email'))
+                <span class="text-danger" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                    @endif
+                    </span> @endif
             </p>
 
             <div class="form-group row mb-4">
                 <div class="col-md-8">
                     <button type="submit" class="btn btn-dark" name="submit">
                         {{ __("Login") }}
-                    </button> 
-
-                    @if (Route::has('password.request'))
-                    <a
-                        class="btn"
-                        href="{{ route('password.request') }}"
-                    >
+                    </button> @if (Route::has('password.request'))
+                    <a class="btn" href="{{ route('password.request') }}">
                         {{ __("Forgot Your Password?") }}
-                    </a>
-                    @endif
+                    </a> @endif
                 </div>
             </div>
 
 
-            
+
         </form>
     </div>
 </div>
-{{-- <div class="container">
+{{--
+<div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -79,13 +55,10 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>                                @if ($errors->has('email'))
+                                <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                                    </span> @endif
                             </div>
                         </div>
 
@@ -93,13 +66,10 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
+                                <input id="password" type="password" class="form-control" name="password" required> @if ($errors->has('password'))
+                                <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                                    </span> @endif
                             </div>
                         </div>
 

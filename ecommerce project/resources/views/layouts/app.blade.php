@@ -92,6 +92,7 @@
 
 
         <nav class="navbar-expand-lg mt-3">
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bigheart-nav" aria-controls="bigheart-nav"
                 aria-expanded="false" aria-label="Toggle navigation">                                    <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
@@ -106,24 +107,27 @@
                         <a class="nav-link dropdown-toggle" href="#" id="bigheartDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">Category</a>
                         <div class="dropdown-menu" aria-labelledby="bigheartDropdown">
-                            <a class="dropdown-item text-weight-bold" href="{{ url('/') }}">Home</a>
-                            <a class="dropdown-item" href="archive.html">Archive</a>
-                            <a class="dropdown-item" href="single.html">Single Blog</a>
-                            <a class="dropdown-item" href="static.html">Static Page</a>
-                            <a class="dropdown-item" href="contact.html">Contact</a>
+                            {{-- To load categories --}}
+                            <?php  $categories=DB::table('categories')->where('parent_id',0)->get(); ?> @foreach($categories as $category)
+                            <h6 class="dropdown-header"><a href="{{route('cats',$category->id)}}">{{$category->category}}</a></h6>
+
+                            <?php  $sub_categories=DB::table('categories')->select('id','category')->where('parent_id',$category->id)->get(); ?> @foreach($sub_categories as $sub_category)
+
+                            <button class="dropdown-item"><a href="{{route('cats',$sub_category->id)}}">{{$sub_category->category}} </a></button>                            @endforeach @endforeach
+
                         </div>
                     </li>
                     <li class="nav-item {{ Request::is('/') ? " active " : " " }}">
-                        <a class="nav-link" href="#">Men's</a>
+                        <a class="nav-link" href="{{route('cats',1)}}">Mens</a>
                     </li>
                     <li class="nav-item {{ Request::is('/') ? " active " : " " }}">
-                        <a class="nav-link" href="#">Women</a>
+                        <a class="nav-link" href="{{route('cats',2)}}">Women</a>
                     </li>
                     <li class="nav-item {{ Request::is('/') ? " active " : " " }}">
-                        <a class="nav-link" href="#">Brands</a>
+                        <a class="nav-link" href="{{url('/brands')}}">Brands</a>
                     </li>
                     <li class="nav-item {{ Request::is('/') ? " active " : " " }}">
-                        <a class="nav-link " href="/about.blade.php">About</a>
+                        <a class="nav-link " href="/about">About Us</a>
                     </li>
                     <li class="nav-item {{ Request::is('/') ? " active " : " " }}">
                         <a class="nav-link" href="/contact">Contact Us</a>
@@ -257,7 +261,7 @@
     <script>
         $(document).ready(function(){
             $('.slide').slick({
-                dots:false
+                dots:true,
             });
     });
     </script>

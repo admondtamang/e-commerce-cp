@@ -312,3 +312,7 @@ ul {
   font-weight: 600;
 }
 
+.sidebar-wrapper {
+  overflow: hidden;
+}
+

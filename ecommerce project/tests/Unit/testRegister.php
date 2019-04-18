@@ -16,6 +16,15 @@ class testRegister extends TestCase
      ** @test
      * @return void
      */
-    public function register()
-    { }
+    // public function register()
+    // {
+    //     $this->visit('/register')
+    //         ->type('Taylor', 'name')
+    //         ->type('taylor@gmail.com', 'email')
+    //         ->select('male')
+    //         ->type('password', 'password')
+    //         ->type('985552445', 'phone')
+    //         ->press('submit')
+    //         ->seePageIs('/');
+    // }
 }

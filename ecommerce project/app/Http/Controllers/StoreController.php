@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Order;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpKernel\HttpCache\Store;
 
 class StoreController extends Controller
 {
@@ -17,12 +18,15 @@ class StoreController extends Controller
      * @return void
      */
     public function __construct()
-    { }
+    {
+        $this->middleware('auth:store');
+    }
 
     public function index()
     {
         return view('store.store');
     }
+
     public function order()
     {
         $menu_active = 2;

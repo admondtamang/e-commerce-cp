@@ -24,7 +24,7 @@
                 <h6>Reviews</h6>
             </li>
             <li>
-                <h6>My wishlist</h6>
+                <h6><a href="{{route('wishlist.index')}}">My wishlist</a></h6>
             </li>
         </ul>
     </aside>
