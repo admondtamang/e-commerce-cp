@@ -4,7 +4,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <div class="myImg"><img class="d-block img-fluid" style="background:cover;" src="{{asset('images/banner01.jpg')}}" alt="Second slide"></div>
+      <div class="img"><img class="d-block img-fluid" src="{{asset('images/banner01.jpg')}}" style="background:cover" alt="Second slide"></div>
     </div>
     <div class="carousel-item">
       <div class="img"><img class="d-block img-fluid" src="{{asset('images/banner02.jpg')}}" alt="Second slide"></div>

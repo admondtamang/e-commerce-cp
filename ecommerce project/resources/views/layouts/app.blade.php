@@ -259,11 +259,7 @@
     });
     </script>
     <script>
-        $(document).ready(function(){
-            $('.slide').slick({
-                dots:true,
-            });
-    });
+
     </script>
 
 </body>

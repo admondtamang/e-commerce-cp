@@ -31,7 +31,7 @@
         <div class="col-xs-6 col-md-6">
             <div class="container p-5">
                 <h3 class="pb-3">Payment Option</h3>
-                {{--
+                <img src="{{url('images/cod.jpg')}}" alt="cod" width="200"> <br>{{--
                 <div class="form-group {{$errors->has('Card number')?'has-error':''}}">
                     <input type="text" class="form-control" name="card_number" value="" id="Card number" placeholder="Card number">
                     <span class="text-danger">{{$errors->first('Card number')}}</span>
@@ -41,7 +41,7 @@
                     <span class="text-danger">{{$errors->first('date')}}</span>
                 </div> --}}
 
-                <input type="submit" class="btn btn-primary">
+                <input type="submit" class="btn btn-primary mt-2">
 
             </div>
         </div>

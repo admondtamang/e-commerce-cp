@@ -15,7 +15,8 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+
+        $products = Wishlist::all()->where(auth()->user()->id);
         return view('wishlist')->with('products', $products);
     }
 
@@ -37,6 +38,7 @@ class WishlistController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->all();
         Wishlist::create($data);
         return back()->with('message', 'Sucessfully added to WishList');
@@ -84,6 +86,8 @@ class WishlistController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Wishlist::find($id);
+        $product->delete();
+        return redirect()->route('wishlist.index')->withSuccess('wishlist successfully deleted');
     }
 }

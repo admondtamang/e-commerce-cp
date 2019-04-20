@@ -18,6 +18,7 @@ class Cart extends Migration
             $table->integer('product_id');
             $table->string('name');
             $table->string('price');
+            $table->string('image');
             $table->integer('quantity');
             $table->integer('stock');
             $table->string('session_id');

@@ -23,59 +23,60 @@
                     @foreach($cart_datas as $cart_data)
 
                     <tr>
-                        <td data-th="Product">
-                            <div class="row">
-                                <img src="" alt="..." class="img-responsive mr-2" />
-
-                                <h4 class="nomargin">{{$cart_data->name}}</h4>
+                        <td data-th="Product" class="row">
+                            <div class="col-md-6">
+                                <img src="{{url('uploads/products/',$cart_data->image)}}" alt="products" class="img-responsive mr-2" style="width:100% ;">
                             </div>
-                        </td>
-                        <td data-th="Price">{{$cart_data->price}}</td>
-                        <td data-th="Quantity">
-                            <input type="number" class="form-control text-center" value="{{$cart_data->quantity}}">
-                        </td>
-                        <td data-th="Subtotal" class="text-center">{{$cart_data->price*$cart_data->quantity}}</td>
+        </div class="col-md-6">
+        <h4 class="nomargin">{{$cart_data->name}}</h4>
+    </div>
+    </td>
+    <td data-th="Price">{{$cart_data->price}}</td>
+    <td data-th="Quantity">
+        <input type="number" class="form-control text-center" value="{{$cart_data->quantity}}" disabled>
+    </td>
+    <td data-th="Subtotal" class="text-center">{{$cart_data->price*$cart_data->quantity}}</td>
 
-                        {{--
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href="{{url('/cart/update-quantity/'.$cart_data->id.'/1')}}"> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="{{$cart_data->stock_quantity}}" autocomplete="off"
-                                    size="2"> @if($cart_data->quantity>1)
-                                <a class="cart_quantity_down" href="{{url('/cart/update-quantity/'.$cart_data->id.'/-1')}}"> - </a>                                @endif
-                            </div>
-                        </td> --}}
-
-                        <td class="Action">
-                            <form action="{{route('cart.destroy',$cart_data->id)}}" method="post">
-                                @csrf {{ method_field('DELETE') }}
-                                <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-
-                </tbody>
-                <tfoot>
-                    <td><a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-                    <td colspan="2" class="hidden-xs"></td>
-                    <td class="hidden-xs text-center"><strong>Total {{$total_price}}</strong></td>
-                    <td>
-                        <a class="btn btn-dark check_out" href="{{route('checkout.index')}}"><i class="d-inline mr-1 fas fa-shopping-basket"></i>CheckOut</a>
-                    </td>
-                    </tr>
-                </tfoot>
-
-            </table>
-
-
-            @else
-            <div class="text-center">
-                <h3 class="py-3"><img src="{{asset('images/no-cart.png')}}" alt="No cart">No item found</h3>
-                <a href="/" class="btn btn-outline-dark">Go shopping</a>
-            </div>
-            @endif
+    {{--
+    <td class="cart_quantity">
+        <div class="cart_quantity_button">
+            <a class="cart_quantity_up" href="{{url('/cart/update-quantity/'.$cart_data->id.'/1')}}"> + </a>
+            <input class="cart_quantity_input" type="text" name="quantity" value="{{$cart_data->stock_quantity}}" autocomplete="off"
+                size="2"> @if($cart_data->quantity>1)
+            <a class="cart_quantity_down" href="{{url('/cart/update-quantity/'.$cart_data->id.'/-1')}}"> - </a> @endif
         </div>
+    </td> --}}
+
+    <td class="Action">
+        <form action="{{route('cart.destroy',$cart_data->id)}}" method="post">
+            @csrf {{ method_field('DELETE') }}
+            <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </form>
+    </td>
+    </tr>
+    @endforeach
+
+    </tbody>
+    <tfoot>
+        <td><a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+        <td colspan="2" class="hidden-xs"></td>
+        <td class="hidden-xs text-center"><strong>Total Rs.{{$total_price}}</strong></td>
+        <td>
+            <a class="btn btn-dark check_out" href="{{route('checkout.index')}}"><i class="d-inline mr-1 fas fa-shopping-basket"></i>CheckOut</a>
+        </td>
+        </tr>
+    </tfoot>
+
+    </table>
+
+
+    @else
+    <div class="text-center">
+        <h3 class="py-3"><img src="{{asset('images/no-cart.png')}}" alt="No cart">No item found</h3>
+        <a href="/" class="btn btn-outline-dark">Go shopping</a>
+    </div>
+    @endif
+    </div>
     </div>
 </section>
 <!--/#cart_items-->

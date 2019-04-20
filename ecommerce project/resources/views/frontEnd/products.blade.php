@@ -1,14 +1,13 @@
 @extends('.layouts.app') 
-@section('content')
-<h1>Products</h1>
+@section('content') {{-- @if($products->count()>0) --}}
 <div class="features_items">
     <!--features_items-->
     <?php
             if($byCate!=""){
                 $products=$list_product;
-                echo '<h2 class="title text-center">Category '.$byCate->name.'</h2>';
+                echo '<h3 class=" text-center">Category '.$byCate->name.'</h3>';
             }else{
-                echo '<h2 class="title text-center">List Products</h2>';
+                echo '<h3 class=" text-center">List Products</h3>';
             }
     ?>
         <div class="row">
@@ -31,5 +30,8 @@
         </div>
 
 </div>
+{{-- @else
+<h3 class="text-center">Nothing Found</h3>
+@endif --}}
 <!--features_items-->
 @endsection

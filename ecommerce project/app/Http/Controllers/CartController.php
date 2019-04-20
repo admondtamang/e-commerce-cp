@@ -62,6 +62,7 @@ class CartController extends Controller
                 return back()->with(' message ', ' Product is already ad ded!!');
             } else {
                 //Cart added
+                // dd($inputToCart);
                 Cart::create($inputToCart);
                 return back()->with('message', 'Product added to cart');
             }

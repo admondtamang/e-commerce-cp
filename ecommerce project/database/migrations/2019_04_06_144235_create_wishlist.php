@@ -20,6 +20,7 @@ class CreateWishlist extends Migration
             $table->string('name');
             $table->integer('price');
             $table->integer('store_id');
+            $table->string('image');
             $table->timestamps();
         });
     }

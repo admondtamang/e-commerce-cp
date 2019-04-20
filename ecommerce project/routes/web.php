@@ -51,6 +51,11 @@ Route::resource('/cart', 'CartController');
 //wishlist
 Route::resource('wishlist', 'WishlistController');
 
+//Invoice
+Route::get('invoice', function () {
+    return view('invoice');
+});
+
 //Order
 Route::resource('checkout', 'OrderController');
 

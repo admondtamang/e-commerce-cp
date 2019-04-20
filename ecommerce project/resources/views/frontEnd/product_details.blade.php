@@ -21,6 +21,7 @@
                     <input type="hidden" value="{{$detail_product->id}}" name="product_id">
                     <input type="hidden" value="{{ $detail_product->name }}" name="name">
                     <input type="hidden" value="{{ $detail_product->price }}" name="price">
+                    <input type="hidden" value="{{ $detail_product->image }}" name="image">
                     <input type="hidden" value="{{ $detail_product->stock_quantity }}" name="stock">
 
                     <h2>{{$detail_product->name}}</h2>
@@ -40,6 +41,7 @@
                     <input type="hidden" name="product_id" value="{{$detail_product->id}}">
                     <input type="hidden" name="user_id" value=" @if(auth()->user()->id) {{auth()->user()->id}}@endif">
                     <input type="hidden" name="name" value="{{$detail_product->name}}">
+                    <input type="hidden" name="image" value="{{$detail_product->image}}">
                     <input type="hidden" name="price" value="{{$detail_product->price}}">
                     <input type="hidden" name="store_id" value="{{$detail_product->store_id}}">
                     <button type="submit" class="btn btn-lg btn-loads"><i class="fas fa-heart text-danger" aria-hidden="true"></i> Add to Wishlist</button>
