@@ -24,6 +24,8 @@ Route::group(['prefix' => 'admin'], function () {
     // Route::get('/order', 'StoreController@order')->name('store.order');
     Route::get('/user', 'AdminController@viewUser')->name('admin.user');
     Route::get('/category', 'AdminController@viewCategory')->name('admin.category');
+    Route::put('/verify/{id}', 'AdminController@verifyStore')->name('admin.verify');
+    Route::put('/blacklist/{id}', 'AdminController@blacklist')->name('admin.blacklist');
 });
 
 // Store

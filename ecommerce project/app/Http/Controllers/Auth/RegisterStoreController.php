@@ -64,7 +64,7 @@ class RegisterStoreController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\Stoer
+     * @return \App\Store
      */
     protected function store(request $req)
     {
@@ -74,9 +74,10 @@ class RegisterStoreController extends Controller
         $store->name = $form_req['name'];
         $store->email = $form_req['email'];
         $store->phone = $form_req['phone'];
+        $store->status = 0;
         $store->password = Hash::make($form_req['password']);
         $store->address = $form_req['address'];
         $store->save();
-        return redirect()->route('store');
+        return redirect()->route('registerStore.index');
     }
 }

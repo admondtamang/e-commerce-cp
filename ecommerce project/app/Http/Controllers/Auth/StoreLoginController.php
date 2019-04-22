@@ -26,12 +26,19 @@ class StoreLoginController extends Controller
             'email'   => 'required|email',
             'password' => 'required|min:6'
         ]);
+        if (Auth::guard('store')->check(['email' => $request->email, 'password' => $request->password, 'status' => 0])) {
+            return redirect()->back()->with('message', 'User is not verified by admin!!');
+        }
 
         // Attempt to log the user in
-        if (Auth::guard('store')->attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (Auth::guard('store')->attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1])) {
             // if successful, then redirect to their intended location
             return redirect()->intended(route('store.dashboard'));
         }
+
+        // if (Auth::guard('store')->attempt(['email' => $request->email, 'password' => $request->password, 'status' => 5])) {
+        // if successful, then redirect to their intended location
+
 
         // if unsuccessful, then redirect back to the login with the form data
         return redirect()->back()->withInput($request->only('email'));

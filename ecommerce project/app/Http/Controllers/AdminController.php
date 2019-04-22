@@ -47,4 +47,18 @@ class AdminController extends Controller
         $user = Store::all();
         return view('admin.user')->with('users', $user);
     }
+    public function verifyStore($id)
+    {
+        $store = Store::find($id);
+        $store->status = 1;
+        $store->save();
+        return redirect()->route('admin.user')->with('message', 'User verified');
+    }
+    public function blacklist($id)
+    {
+        $store = Store::find($id);
+        $store->status = 0;
+        $store->save();
+        return redirect()->route('admin.user')->with('message', 'User blacklisted');
+    }
 }

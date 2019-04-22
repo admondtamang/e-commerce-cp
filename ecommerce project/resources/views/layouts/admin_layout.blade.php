@@ -92,7 +92,7 @@
                 </nav>
                 <!-- End Navbar -->
                 <div class="content">
-                    @yield('content')
+    @include('layouts/error') @yield('content')
                 </div>
 
 

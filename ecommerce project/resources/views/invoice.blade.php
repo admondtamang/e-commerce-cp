@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-lg-12 col-lg-offset-1" style="margin-top:20px; text-align: right">
                 <div class="btn-group mb-4">
-                    <a href="/invoice-pdf" class="btn btn-success">Save as PDF</a>
+                    <button onclick="print()" class="btn btn-success"><i class="fa fa-print" aria-hidden="true"></i> Save as PDF</button>
                 </div>
             </div>
         </div>

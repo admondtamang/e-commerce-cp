@@ -80,13 +80,7 @@ class ProfileController extends Controller
         $user = $request->all();
 
         User::find($id)->update($user);
-        // DB::table('users')->where('id', $id)->update([
-        //     'name' => $user['name'],
-        //     'email' => $user['email'],
-        //     'gender' => $user['gender'],
-        //     'phone' => $user['phone'],
-        //     'password' => $user['password'],
-        // ]);
+
         return redirect()->route('profile.index')->with('message', 'Profile Updated!');
     }
 
